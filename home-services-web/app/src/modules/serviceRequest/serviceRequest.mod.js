@@ -1,0 +1,66 @@
+(function (ng) {
+    var mod = ng.module('serviceRequestModule', ['ngCrud']);
+
+    mod.constant('serviceRequestContext', 'serviceRequests');
+
+    mod.constant('serviceRequestModel', {
+        fields: [{
+                name: 'name',
+                displayName: 'Name',
+                type: 'String',
+                required: true
+            }, {
+                name: 'price',
+                displayName: 'Price',
+                type: 'Integer',
+                required: true
+            }, {
+                name: 'recommendedTime',
+                displayName: 'Recommended Time',
+                type: 'String',
+                required: true
+            }, {
+                name: 'creationDate',
+                displayName: 'Creation Date',
+                type: 'Date',
+                required: true
+            }, {
+                name: 'dueDate',
+                displayName: 'Due Date',
+                type: 'Date',
+                required: true
+            }, {
+                name: 'statusService',
+                displayName: 'Status Service',
+                type: 'String',
+                required: true
+            }, {
+                name: 'customer',
+                displayName: 'Customer',
+                type: 'Reference',
+                url: 'customerContext',
+                options: [],
+                required: true
+            }, {
+                name: 'status',
+                displayName: 'Status',
+                type: 'Reference',
+                url: 'statusContext',
+                options: [],
+                required: true
+            }, {
+                name: 'category',
+                displayName: 'Category',
+                type: 'Reference',
+                url: 'categoryContext',
+                options: [],
+                required: true
+            }],
+        childs: [{
+                name: 'expectedskills',
+                displayName: 'Expectedskills',
+                //template: '', //override generic template
+                ctrl: 'ServicesRequestsexpectedskillsCtrl',
+                owned: false
+            }]});
+})(window.angular);

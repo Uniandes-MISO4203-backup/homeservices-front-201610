@@ -1,0 +1,9 @@
+node_modules
+bower_components
+.tmp
+.idea
+instrumented
+reports
+nbproject/private
+dist
+npm-debug.log
