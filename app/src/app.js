@@ -9,6 +9,7 @@
         'statusModule',
         'workExperienceModule',
         'catalogModule',
+        'accountModule',
         'authModule',
         'ui.router',
         'ngCrud'
@@ -65,6 +66,12 @@
                         templateUrl: tplUrl,
                         controller: 'catalogCtrl',
                         controllerAs: alias
+                    })
+                    .state('profile', {
+                        url: '/profile',
+                        templateUrl: 'src/modules/account/profile.tpl.html',
+                        controller: 'profileCtrl',
+                        controllerAs: 'ctrl'
                     });
             $urlRouterProvider.otherwise('/');
         }]);
