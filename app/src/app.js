@@ -8,6 +8,7 @@
         'skillModule',
         'statusModule',
         'workExperienceModule',
+        'catalogModule',
         'authModule',
         'ui.router',
         'ngCrud'
@@ -23,42 +24,48 @@
 
     mod.config(['$stateProvider', '$urlRouterProvider', 'CrudTemplateURL', 'CrudCtrlAlias', function ($stateProvider, $urlRouterProvider, tplUrl, alias) {
             $stateProvider
-                .state('category', {
-                    url: '/category',
-                    templateUrl: tplUrl,
-                    controller: 'categoryCtrl',
-                    controllerAs: alias
-                })
-                .state('contractor', {
-                    url: '/contractor',
-                    templateUrl: tplUrl,
-                    controller: 'contractorCtrl',
-                    controllerAs: alias
-                })
-                .state('customer', {
-                    url: '/customer',
-                    templateUrl: tplUrl,
-                    controller: 'customerCtrl',
-                    controllerAs: alias
-                })
-                .state('serviceRequest', {
-                    url: '/serviceRequest',
-                    templateUrl: tplUrl,
-                    controller: 'serviceRequestCtrl',
-                    controllerAs: alias
-                })
-                .state('skill', {
-                    url: '/skill',
-                    templateUrl: tplUrl,
-                    controller: 'skillCtrl',
-                    controllerAs: alias
-                })
-                .state('status', {
-                    url: '/status',
-                    templateUrl: tplUrl,
-                    controller: 'statusCtrl',
-                    controllerAs: alias
-                });
+                    .state('category', {
+                        url: '/category',
+                        templateUrl: tplUrl,
+                        controller: 'categoryCtrl',
+                        controllerAs: alias
+                    })
+                    .state('contractor', {
+                        url: '/contractor',
+                        templateUrl: tplUrl,
+                        controller: 'contractorCtrl',
+                        controllerAs: alias
+                    })
+                    .state('customer', {
+                        url: '/customer',
+                        templateUrl: tplUrl,
+                        controller: 'customerCtrl',
+                        controllerAs: alias
+                    })
+                    .state('serviceRequest', {
+                        url: '/serviceRequest',
+                        templateUrl: tplUrl,
+                        controller: 'serviceRequestCtrl',
+                        controllerAs: alias
+                    })
+                    .state('skill', {
+                        url: '/skill',
+                        templateUrl: tplUrl,
+                        controller: 'skillCtrl',
+                        controllerAs: alias
+                    })
+                    .state('status', {
+                        url: '/status',
+                        templateUrl: tplUrl,
+                        controller: 'statusCtrl',
+                        controllerAs: alias
+                    })
+                    .state('catalog', {
+                        url: '/catalog',
+                        templateUrl: tplUrl,
+                        controller: 'catalogCtrl',
+                        controllerAs: alias
+                    });
             $urlRouterProvider.otherwise('/');
         }]);
 
@@ -67,7 +74,18 @@
                 apiUrl: 'http://localhost:8080/home-services-api/api/users/',
                 successState: 'category'
             });
-            auth.setRoles({'contractor': [{id: 'indexContractor', label: 'Contractor', icon: 'list-alt', state: 'contractor'}],
-           'customer': [{id: 'indexCustomer', label: 'Customer', icon: 'list-alt', state: 'customer'}]}) ;
+            auth.setRoles({
+                'customer': [{
+                        id: 'catalog',
+                        label: 'Catalog',
+                        icon: 'list-alt',
+                        state: 'catalog'
+                    }],
+                'contractor': [{
+                        id: 'profile',
+                        label: 'Profile',
+                        icon: 'list-alt',
+                        state: 'profile'
+                    }]});
         }]);
 })(window.angular);

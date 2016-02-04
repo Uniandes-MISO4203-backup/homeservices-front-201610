@@ -15,6 +15,18 @@
             this.fetchRecords();
         }]);
 
+    mod.controller('ContractorworkExperiencesCtrl', ['CrudCreator', '$scope', 'workExperienceModel',
+        function (ngCrud, $scope, model) {
+            ngCrud.extendCompChildCtrl({
+                name: 'workExperiences',
+                displayName: 'Work Experiences',
+                parent: 'contractor',
+                ctrl: this,
+                scope: $scope,
+                model: model
+            });
+        }]);
+
     mod.controller('ContractorsskillsCtrl', ['CrudCreator', '$scope',
         'skillModel', 'skillContext', 'contractorContext',
         function (ngCrud, $scope, model, url, parentUrl) {
@@ -23,18 +35,6 @@
                 displayName: 'Skills',
                 parentUrl: parentUrl,
                 listUrl: url,
-                ctrl: this,
-                scope: $scope,
-                model: model
-            });
-        }]);
-
-    mod.controller('ContractorworkExperiencesCtrl', ['CrudCreator', '$scope', 'workExperienceModel',
-        function (ngCrud, $scope, model) {
-            ngCrud.extendCompChildCtrl({
-                name: 'workExperiences',
-                displayName: 'Work Experiences',
-                parent: 'contractor',
                 ctrl: this,
                 scope: $scope,
                 model: model

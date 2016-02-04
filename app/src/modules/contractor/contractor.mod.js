@@ -21,16 +21,16 @@
                 required: true
             }],
         childs: [{
-                name: 'skills',
-                displayName: 'Skills',
-                //template: '', //override generic template
-                ctrl: 'ContractorsskillsCtrl',
-                owned: false
-            }, {
                 name: 'workExperiences',
                 displayName: 'Work Experiences',
                 //template: '', //override generic template
                 ctrl: 'ContractorworkExperiencesCtrl',
                 owned: true
+            }, {
+                name: 'skills',
+                displayName: 'Skills',
+                //template: '', //override generic template
+                ctrl: 'ContractorsskillsCtrl',
+                owned: false
             }]});
 })(window.angular);

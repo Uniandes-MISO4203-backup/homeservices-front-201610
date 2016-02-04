@@ -30,18 +30,6 @@
                 type: 'Date',
                 required: true
             }, {
-                name: 'statusService',
-                displayName: 'Status Service',
-                type: 'String',
-                required: true
-            }, {
-                name: 'customer',
-                displayName: 'Customer',
-                type: 'Reference',
-                url: 'customerContext',
-                options: [],
-                required: true
-            }, {
                 name: 'status',
                 displayName: 'Status',
                 type: 'Reference',
@@ -53,6 +41,13 @@
                 displayName: 'Category',
                 type: 'Reference',
                 url: 'categoryContext',
+                options: [],
+                required: true
+            }, {
+                name: 'customer',
+                displayName: 'Customer',
+                type: 'Reference',
+                url: 'customerContext',
                 options: [],
                 required: true
             }],
