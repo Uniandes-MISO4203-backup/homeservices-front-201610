@@ -19,18 +19,23 @@
                 displayName: 'Document',
                 type: 'String',
                 required: true
+            }, {
+                name: 'picture',
+                displayName: 'Picture',
+                type: 'String',
+                required: true
             }],
         childs: [{
-                name: 'workExperiences',
-                displayName: 'Work Experiences',
-                //template: '', //override generic template
-                ctrl: 'ContractorworkExperiencesCtrl',
-                owned: true
-            }, {
                 name: 'skills',
                 displayName: 'Skills',
                 //template: '', //override generic template
                 ctrl: 'ContractorsskillsCtrl',
                 owned: false
+            }, {
+                name: 'workExperiences',
+                displayName: 'Work Experiences',
+                //template: '', //override generic template
+                ctrl: 'ContractorworkExperiencesCtrl',
+                owned: true
             }]});
 })(window.angular);

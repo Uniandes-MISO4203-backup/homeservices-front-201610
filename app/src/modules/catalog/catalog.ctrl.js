@@ -1,7 +1,8 @@
 (function (ng) {
     ng.module('catalogModule', ['serviceRequestModule'])
+            .constant('catalogContext', 'catalog')
             .controller('catalogCtrl', ['$scope', 'CrudCreator',
-                'serviceRequestModel', 'serviceRequestContext',
+                'serviceRequestModel', 'catalogContext',
                 function ($scope, ngCrud, model, url) {
                     ngCrud.extendController({
                         name: 'serviceRequest',

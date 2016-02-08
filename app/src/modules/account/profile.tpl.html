@@ -1,6 +1,11 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2 thumbnail">
-        <h1>{{user.name + " " + user.lastName}}</h1>
-        <label>Document: {{user.document}}</label>
+        <div class="col-md-3">
+            <img ng-src="{{user.picture}}" alt="" class="img-responsive img img-rounded">
+        </div>
+        <div class="col-md-9">
+            <h1>{{user.name + " " + user.lastName}}</h1>
+            <label>Document: {{user.document}}</label>
+        </div>
     </div>
 </div>

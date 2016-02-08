@@ -19,6 +19,11 @@
                 displayName: 'Document',
                 type: 'String',
                 required: true
+            }, {
+                name: 'picture',
+                displayName: 'Picture',
+                type: 'String',
+                required: true
             }],
         childs: [{
                 name: 'serviceRequests',

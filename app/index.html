@@ -9,6 +9,7 @@
         <!-- build:css(<%= meta.src %>) styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="../bower_components/bootswatch-dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -29,12 +30,12 @@
         <script src="../bower_components/lodash/lodash.js"></script>
         <script src="../bower_components/restangular/dist/restangular.js"></script>
         <script src="../bower_components/ng-crud/dist/ngcrud.js"></script>
+        <script src="../bower_components/angular-messages/angular-messages.js"></script>
         <script src="../bower_components/ngstorage/ngStorage.js"></script>
         <script src="../bower_components/checklist-model/checklist-model.js"></script>
-        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="../bower_components/csw-ng-auth/dist/csw-ng-auth.js"></script>
-        <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -78,14 +79,6 @@
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="main-bar">
-                            <ul class="nav navbar-nav">
-                                <li><a ui-sref="category">Category</a></li>
-                                <li><a ui-sref="contractor">Contractor</a></li>
-                                <li><a ui-sref="customer">Customer</a></li>
-                                <li><a ui-sref="serviceRequest">Service Request</a></li>
-                                <li><a ui-sref="skill">Skill</a></li>
-                                <li><a ui-sref="status">Status</a></li>
-                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <login-button></login-button>
                             </ul>

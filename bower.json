@@ -3,7 +3,8 @@
     "dependencies": {
         "ng-crud": "^0.2.0",
         "csw-ng-auth": "^0.1.0",
-        "angular-ui-router": "~0.2.15"
+        "angular-ui-router": "~0.2.15",
+        "bootswatch-dist": "slate"
     },
     "overrides": {
         "bootstrap": {
@@ -12,6 +13,14 @@
                 "dist/css/bootstrap.css",
                 "dist/js/bootstrap.js"
             ]
+        },
+        "bootswatch-dist": {
+            "main": [
+                "css/bootstrap.css"
+            ]
         }
+    },
+    "resolutions": {
+        "angular": "1.4.9"
     }
 }

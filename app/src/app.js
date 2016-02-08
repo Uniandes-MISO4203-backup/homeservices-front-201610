@@ -73,13 +73,12 @@
                         controller: 'profileCtrl',
                         controllerAs: 'ctrl'
                     });
-            $urlRouterProvider.otherwise('/');
         }]);
 
     mod.config(['authServiceProvider', function (auth) {
             auth.setValues({
                 apiUrl: 'http://localhost:8080/home-services-api/api/users/',
-                successState: 'category'
+                successState: 'catalog'
             });
             auth.setRoles({
                 'customer': [{
@@ -87,6 +86,16 @@
                         label: 'Catalog',
                         icon: 'list-alt',
                         state: 'catalog'
+                    }, {
+                        id: 'profile',
+                        label: 'Profile',
+                        icon: 'list-alt',
+                        state: 'profile'
+                    }, {
+                        id: 'serviceRequest',
+                        label: 'Service Requests',
+                        icon: 'list-alt',
+                        state: 'serviceRequest'
                     }],
                 'contractor': [{
                         id: 'profile',

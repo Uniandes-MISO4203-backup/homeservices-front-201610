@@ -13,14 +13,14 @@ describe('ServiceRequest E2E Testing', function () {
             mod.run(['ngCrudMock.mockRecords', function(records){
                 records['serviceRequests'] = [];
 
-                records['statuss'] = [];
-                records['statuss'].push({id: Math.floor(Math.random() * 10000), name: 'status'});
-
                 records['categorys'] = [];
                 records['categorys'].push({id: Math.floor(Math.random() * 10000), name: 'category'});
 
                 records['customers'] = [];
                 records['customers'].push({id: Math.floor(Math.random() * 10000), name: 'customer'});
+
+                records['statuss'] = [];
+                records['statuss'].push({id: Math.floor(Math.random() * 10000), name: 'status'});
             }]);
         });
     });
@@ -31,9 +31,9 @@ describe('ServiceRequest E2E Testing', function () {
         element(by.id('name')).sendKeys(nameVarTest);
 		element(by.id('price')).sendKeys(priceVarTest);
         element(by.id('recommendedTime')).sendKeys(recommendedtimeVarTest);
-        element(by.id('status')).all(by.css('option')).last().click();
         element(by.id('category')).all(by.css('option')).last().click();
         element(by.id('customer')).all(by.css('option')).last().click();
+        element(by.id('status')).all(by.css('option')).last().click();
         element(by.id('save-serviceRequest')).click();
         expect(element.all(by.repeater('record in records')).count()).toEqual(1);
     });
