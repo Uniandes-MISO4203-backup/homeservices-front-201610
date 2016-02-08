@@ -72,6 +72,12 @@
                         templateUrl: 'src/modules/account/profile.tpl.html',
                         controller: 'profileCtrl',
                         controllerAs: 'ctrl'
+                    })
+                    .state('myskills', {
+                        url: '/myskills',
+                        templateUrl: tplUrl,
+                        controller: 'myskillsCtrl',
+                        controllerAs: alias
                     });
         }]);
 
@@ -102,6 +108,11 @@
                         label: 'Profile',
                         icon: 'list-alt',
                         state: 'profile'
+                    }, {
+                        id: 'myskills',
+                        label: 'Skills',
+                        icon: 'list-alt',
+                        state: 'myskills'
                     }]});
         }]);
 })(window.angular);

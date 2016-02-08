@@ -3,6 +3,8 @@
 
     mod.constant('contractorContext', 'contractors');
 
+    mod.constant('mySkillsContext', 'myskills');
+
     mod.constant('contractorModel', {
         fields: [{
                 name: 'name',
