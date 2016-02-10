@@ -12,7 +12,8 @@
         'accountModule',
         'authModule',
         'ui.router',
-        'ngCrud'
+        'ngCrud',
+        'roleModule'
     ]);
 
     mod.config(['$logProvider', function ($logProvider) {
@@ -98,6 +99,11 @@
                         icon: 'list-alt',
                         state: 'profile'
                     }, {
+                        id: 'customer',
+                        label: 'Customer',
+                        icon: 'list-alt',
+                        state: 'customer'
+                    }, {
                         id: 'serviceRequest',
                         label: 'Service Requests',
                         icon: 'list-alt',
@@ -108,6 +114,11 @@
                         label: 'Profile',
                         icon: 'list-alt',
                         state: 'profile'
+                    }, {
+                        id: 'contractor',
+                        label: 'Contractor',
+                        icon: 'list-alt',
+                        state: 'contractor'
                     }, {
                         id: 'myskills',
                         label: 'Skills',

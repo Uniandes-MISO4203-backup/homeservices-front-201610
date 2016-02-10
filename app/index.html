@@ -17,7 +17,7 @@
         <!-- include: "type": "css", "files": "<%= meta.includeCssFiles %>" -->
 
 
-      
+    
         <!-- /include -->
         <!-- endbuild -->
 
@@ -50,6 +50,7 @@
         <script src="src/modules/skill/skill.mod.js"></script>
         <script src="src/modules/status/status.mod.js"></script>
         <script src="src/modules/workExperience/workExperience.mod.js"></script>
+        <script src="src/auth.js"></script>
         <script src="src/modules/account/profile.ctrl.js"></script>
         <script src="src/modules/catalog/catalog.ctrl.js"></script>
         <script src="src/modules/category/category.ctrl.js"></script>
@@ -80,6 +81,17 @@
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="main-bar">
+                            <ul id="menu" ng-controller="roleCtrl" id="menu" class="nav navbar-nav">
+                                <li ng-if="contractor"><a ui-sref="contractor">Contractor</a></li>
+                                <li ng-if="customer"><a ui-sref="customer">Customer</a></li>
+                                <li ng-if="serviceRequest"><a ui-sref="serviceRequest">Service Request</a></li>
+                                <li ng-if="catalog"><a ui-sref="catalog">Catalog</a></li>
+                                <li ng-if="myskills"><a ui-sref="myskills">My Skills</a></li>
+                                <li ng-if="profile"><a ui-sref="profile">Profile</a></li>
+                                <li ng-if="skill"><a ui-sref="skill">Skill</a></li>
+                                <li ng-if="category"><a ui-sref="category">category</a></li>
+                                <li ng-if="status"><a ui-sref="status">Status</a></li>
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <login-button></login-button>
                             </ul>
