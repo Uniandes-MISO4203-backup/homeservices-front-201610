@@ -5,15 +5,14 @@
                 'serviceRequestModel', 'catalogContext',
                 function ($scope, ngCrud, model, url) {
                     ngCrud.extendController({
-                        name: 'serviceRequest',
-                        displayName: 'Service Request',
+                        name: 'catalog',
+                        displayName: 'Catalog',
                         ctrl: this,
                         scope: $scope,
                         model: {fields: model.fields},
                         url: url
                     });
                     this.readOnly = true;
-                    this.loadRefOptions();
                     this.fetchRecords();
                 }]);
 })(window.angular);
