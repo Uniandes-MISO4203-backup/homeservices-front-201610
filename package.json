@@ -1,6 +1,6 @@
 {
   "name": "home-services",
-  "description": "HomeServices",
+  "description": "MPHomeServices-front",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "^0.4.5",
