@@ -14,5 +14,10 @@
                 displayName: 'Description',
                 type: 'String',
                 required: true
+            }, {
+                name: 'hours',
+                displayName: 'Hours',
+                type: 'Integer',
+                required: true
             }]});
 })(window.angular);
