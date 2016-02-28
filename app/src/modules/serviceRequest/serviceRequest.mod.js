@@ -43,6 +43,11 @@
                 url: 'statusContext',
                 options: [],
                 required: true
+            },{
+                name: 'description',
+                displayName: 'Description Service',
+                type: 'String',
+                required: true
             }],
         childs: [{
                 name: 'expectedskills',
