@@ -24,6 +24,11 @@
                 displayName: 'Picture',
                 type: 'String',
                 required: true
+            }, {
+                name: 'address',
+                displayName: 'Address',
+                type: 'String',
+                required: true
             }],
         childs: [{
                 name: 'serviceRequests',
