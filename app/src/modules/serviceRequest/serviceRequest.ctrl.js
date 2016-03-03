@@ -2,8 +2,8 @@
     var mod = ng.module('serviceRequestModule');
 
     mod.controller('serviceRequestCtrl', ['CrudCreator', '$scope',
-        'serviceRequestContext', 'serviceRequestModel',
-        function (ngCrud, $scope, url, model) {
+        'serviceRequestContext', 'serviceRequestModel','$state',
+        function (ngCrud, $scope, url, model,$state) {
             ngCrud.extendController({
                 name: 'serviceRequest',
                 displayName: 'Service Request',
@@ -14,6 +14,12 @@
             });
             this.loadRefOptions();
             this.fetchRecords();
+            this.searchByDescription = function (descriptionService) {
+                if (descriptionService) {
+
+                    $state.go('serviceRequest', {description: descriptionService});
+                }
+            };
         }]);
 
     mod.controller('ServicesRequestsexpectedskillsCtrl', ['CrudCreator', '$scope',

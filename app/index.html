@@ -92,6 +92,12 @@
                                 <li ng-if="category"><a ui-sref="category">category</a></li>
                                 <li ng-if="status"><a ui-sref="status">Status</a></li>
                             </ul>
+                            <form novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchByDescription(descriptionService)" ng-controller="serviceRequestCtrl as ctrl" >
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search Services" ng-model="descriptionService" required>
+                                    </div>
+                                    <button type="submit" class="btn btn default">encuentralo!</button>
+                            </form>
                             <ul class="nav navbar-nav navbar-right">
                                 <login-button></login-button>
                             </ul>
