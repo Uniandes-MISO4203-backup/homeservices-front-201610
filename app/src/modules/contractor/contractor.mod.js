@@ -26,6 +26,9 @@
                 displayName: 'Picture',
                 type: 'String',
                 required: true
+            }, {
+                name: 'city',
+                displayName: 'city',
             },{
                 name: 'telefono',
                 displayName: 'Telefono',
