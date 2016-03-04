@@ -29,6 +29,9 @@
             }, {
                 name: 'city',
                 displayName: 'city',
+            },{
+                name: 'telefono',
+                displayName: 'Telefono',
                 type: 'String',
                 required: true
             }],

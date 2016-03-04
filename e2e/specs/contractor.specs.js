@@ -6,7 +6,8 @@ describe('Contractor E2E Testing', function () {
 	var lastnameVarTest = 'Val' + Math.floor(Math.random() * 10000);
 	var documentVarTest = 'Val' + Math.floor(Math.random() * 10000);
 	var pictureVarTest = 'Val' + Math.floor(Math.random() * 10000);
-
+        var telefono = 'Val' + Math.floor(Math.random() * 10000);
+        
     beforeEach(function () {
         browser.addMockModule('ngCrudMock', function () {
             var mod = angular.module('ngCrudMock');
