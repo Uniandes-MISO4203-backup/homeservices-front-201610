@@ -28,10 +28,12 @@
                 required: true
             }, {
                 name: 'city',
-                displayName: 'city',
+                displayName: 'City',
+                type: 'String',
+                required: true
             },{
                 name: 'telefono',
-                displayName: 'Telefono',
+                displayName: 'Phone',
                 type: 'String',
                 required: true
             }],
