@@ -20,6 +20,16 @@
                     $state.go('serviceRequest', {description: descriptionService});
                 }
             };
+            this.globalActions.leastPopulated = {
+                displayName: 'Search',
+                icon: 'star',
+                fn: function (descriptionService) {
+                    $state.go('serviceRequest', {description: descriptionService});
+                },
+                show: function () {
+                    return true;
+                }
+            };
         }]);
 
     mod.controller('ServicesRequestsexpectedskillsCtrl', ['CrudCreator', '$scope',
