@@ -8,6 +8,7 @@
         'skillModule',
         'statusModule',
         'workExperienceModule',
+        'educationModule',
         'catalogModule',
         'accountModule',
         'authModule',
