@@ -26,6 +26,16 @@
                 displayName: 'Picture',
                 type: 'String',
                 required: true
+            }, {
+                name: 'city',
+                displayName: 'City',
+                type: 'String',
+                required: true
+            },{
+                name: 'telefono',
+                displayName: 'Phone',
+                type: 'String',
+                required: true
             }],
         childs: [{
                 name: 'skills',
