@@ -46,7 +46,7 @@
                         controllerAs: alias
                     })
                     .state('serviceRequest', {
-                        url: '/serviceRequest',
+                        url: '/serviceRequest/?description',
                         templateUrl: tplUrl,
                         controller: 'serviceRequestCtrl',
                         controllerAs: alias
