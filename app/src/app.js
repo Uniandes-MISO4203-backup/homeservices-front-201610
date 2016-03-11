@@ -74,6 +74,12 @@
                         controller: 'profileCtrl',
                         controllerAs: 'ctrl'
                     })
+                    .state('searchSR', {
+                        url: '/searchSR',
+                        templateUrl: tplUrl,
+                        controller: 'searchSRCtrl',
+                        controllerAs: 'ctrl'
+                    })
                     .state('myskills', {
                         url: '/myskills',
                         templateUrl: tplUrl,
