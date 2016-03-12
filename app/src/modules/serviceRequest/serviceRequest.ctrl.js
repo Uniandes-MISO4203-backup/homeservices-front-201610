@@ -21,10 +21,10 @@
                 }
             };
             this.globalActions.searchDescription = {
-                displayName: 'Search',
+                displayName: 'Search by Description',
                 icon: 'star',
                 fn: function () {
-                    return 'prueba';
+                    $state.go('searchSR');
 
                 },
                 show: function () {

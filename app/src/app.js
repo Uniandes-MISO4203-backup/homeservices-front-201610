@@ -76,9 +76,8 @@
                     })
                     .state('searchSR', {
                         url: '/searchSR',
-                        templateUrl: tplUrl,
-                        controller: 'searchSRCtrl',
-                        controllerAs: 'ctrl'
+                        templateUrl: 'src/modules/searchServiceRequest/searchServiceRequest.tpl.html'
+
                     })
                     .state('myskills', {
                         url: '/myskills',
