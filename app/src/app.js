@@ -8,6 +8,7 @@
         'skillModule',
         'statusModule',
         'workExperienceModule',
+        'educationModule',
         'catalogModule',
         'accountModule',
         'authModule',
@@ -79,6 +80,11 @@
                         templateUrl: 'src/modules/account/profile.tpl.html',
                         controller: 'profileCtrl',
                         controllerAs: 'ctrl'
+                    })
+                    .state('searchSR', {
+                        url: '/searchSR',
+                        templateUrl: 'src/modules/searchServiceRequest/searchServiceRequest.tpl.html'
+
                     })
                     .state('myskills', {
                         url: '/myskills',

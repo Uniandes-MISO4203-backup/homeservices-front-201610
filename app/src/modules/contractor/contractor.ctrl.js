@@ -32,6 +32,18 @@
             });
         }]);
 
+    mod.controller('ContractoreducationsCtrl', ['CrudCreator', '$scope', 'educationModel',
+        function (ngCrud, $scope, model) {
+            ngCrud.extendCompChildCtrl({
+                name: 'educations',
+                displayName: 'Educations',
+                parent: 'contractor',
+                ctrl: this,
+                scope: $scope,
+                model: model
+            });
+        }]);
+
     mod.controller('ContractorsskillsCtrl', ['CrudCreator', '$scope',
         'skillModel', 'skillContext', 'contractorContext', '$state',
         function (ngCrud, $scope, model, url, parentUrl, $state) {

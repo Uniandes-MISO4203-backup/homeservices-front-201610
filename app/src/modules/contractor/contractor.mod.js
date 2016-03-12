@@ -49,5 +49,11 @@
                 //template: '', //override generic template
                 ctrl: 'ContractorworkExperiencesCtrl',
                 owned: true
+            }, {
+                name: 'educations',
+                displayName: 'Educations',
+                //template: '', //override generic template
+                ctrl: 'ContractoreducationsCtrl',
+                owned: true
             }]});
 })(window.angular);

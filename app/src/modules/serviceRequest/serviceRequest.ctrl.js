@@ -20,11 +20,12 @@
                     $state.go('serviceRequest', {description: descriptionService});
                 }
             };
-            this.globalActions.leastPopulated = {
-                displayName: 'Search',
+            this.globalActions.searchDescription = {
+                displayName: 'Search by Description',
                 icon: 'star',
-                fn: function (descriptionService) {
-                    $state.go('serviceRequest', {description: descriptionService});
+                fn: function () {
+                    $state.go('searchSR');
+
                 },
                 show: function () {
                     return true;
