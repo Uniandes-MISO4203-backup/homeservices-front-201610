@@ -39,6 +39,12 @@
                         controller: 'contractorCtrl',
                         controllerAs: alias
                     })
+                    .state('contractorBySkill', {
+                        url: '/contractor?skillName',
+                        templateUrl: tplUrl,
+                        controller: 'contractorCtrl',
+                        controllerAs: alias
+                    })
                     .state('customer', {
                         url: '/customer',
                         templateUrl: tplUrl,

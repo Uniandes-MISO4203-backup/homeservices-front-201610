@@ -45,8 +45,8 @@
         }]);
 
     mod.controller('ContractorsskillsCtrl', ['CrudCreator', '$scope',
-        'skillModel', 'skillContext', 'contractorContext',
-        function (ngCrud, $scope, model, url, parentUrl) {
+        'skillModel', 'skillContext', 'contractorContext', '$state',
+        function (ngCrud, $scope, model, url, parentUrl, $state) {
             ngCrud.extendAggChildCtrl({
                 name: 'skills',
                 displayName: 'Skills',
@@ -56,7 +56,13 @@
                 scope: $scope,
                 model: model
             });
-        }]);
+            this.searchBySkill = function (skill) {
+                if (skill) {
+                    $state.go('contractorBySkill', {skillName : skill});
+                }
+            };
+        }
+    ]);
 
     mod.controller('myskillsCtrl', [
         'Restangular', 'skillContext', '$scope',
