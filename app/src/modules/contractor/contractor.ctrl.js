@@ -131,4 +131,26 @@
                 }
             };
         }]);
+
+    mod.controller('ContractorsExperienceCtrl', ['CrudCreator', '$scope',
+        'workExperienceModel','workExperienceContext','contractorContext', '$state',
+        function (ngCrud, $scope, model, url, parentUrl, $state) {
+            ngCrud.extendCompChildCtrl({
+                name: 'workExperiences',
+                displayName: 'Work Experiences',
+                parent: 'contractor',
+                ctrl: this,
+                parentUrl: parentUrl,
+                listUrl: url,
+                scope: $scope,
+                model: model
+            });
+            this.searchByExperience = function () {
+                console.log(this.experienceName);
+                if (this.experienceName) {
+                    $state.go('contractorByExperience', {experienceDesc : this.experienceName});
+                }
+            };
+        }]);
+
 })(window.angular);
