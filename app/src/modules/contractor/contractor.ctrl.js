@@ -148,7 +148,8 @@
             this.searchByExperience = function () {
                 console.log(this.experienceName);
                 if (this.experienceName) {
-                    $state.go('contractorByExperience', {experienceDesc : this.experienceName});
+                    console.log(this.experiencenName);
+                    $state.go('contractorByExperience', {experienceName : this.experienceName});
                 }
             };
         }]);
