@@ -5,6 +5,7 @@
         'contractorModule',
         'customerModule',
         'serviceRequestModule',
+        'serviceRequestPricesModule',
         'skillModule',
         'statusModule',
         'workExperienceModule',
@@ -61,6 +62,12 @@
                         url: '/serviceRequest/?description',
                         templateUrl: tplUrl,
                         controller: 'serviceRequestCtrl',
+                        controllerAs: alias
+                    })
+                    .state('serviceRequestPrices', {
+                        url: '/serviceRequestPrices/?serviceRequestId',
+                        templateUrl: tplUrl,
+                        controller: 'serviceRequestPrices',
                         controllerAs: alias
                     })
                     .state('skill', {
