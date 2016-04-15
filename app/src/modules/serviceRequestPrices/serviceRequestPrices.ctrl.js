@@ -22,7 +22,7 @@
                             telefono: '555555'
                         }
                     }
-                ]
+                ];
             };
             $scope.fetchData();
         }]);
