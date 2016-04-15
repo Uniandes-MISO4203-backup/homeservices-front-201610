@@ -2,8 +2,27 @@
     <div class="col-md-8 col-md-offset-2 thumbnail">
 
         <div class="col-md-9">
-            <h1>Price List</h1>
-            serviceRequestId:{{serviceRequestId}}
+            <h1>Price List  serviceRequestId:{{serviceRequestId}}</h1>
         </div>
+        <div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="ng-binding ng-scope">Name</th>
+                            <th class="ng-binding ng-scope">Last Name</th>
+                            <th class="ng-binding ng-scope">Document</th>
+                            <th class="ng-binding ng-scope">Price</th>
+                            <th class="ng-binding ng-scope">Actions</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat='item in data'>
+                        <td>{{item.contractor.name}}</td>
+                        <td>{{item.contractor.lastName}}</td>
+                        <td>{{item.contractor.document}}</td>
+                        <td>{{item.price}}</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
     </div>
 </div>

@@ -1,8 +1,5 @@
 (function (ng) {
     var mod = ng.module('mainApp', [
-        'ngCrudMock',// ngCrudMock
-        'authMock', // mock for security
-        'serviceRequestMock', // mock for service request*/
         'categoryModule',
         'contractorModule',
         'customerModule',
