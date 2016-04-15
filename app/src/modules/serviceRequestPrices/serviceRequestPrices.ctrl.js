@@ -6,7 +6,7 @@
             $scope.serviceRequestId = $state.params.serviceRequestId;
             $scope.fetchData = function () {
                 $scope.data = Restangular.one(parentUrl, $scope.serviceRequestId).getList(url);
-            }
+            };
             $scope.fetchData();
         }]);
 })(window.angular);

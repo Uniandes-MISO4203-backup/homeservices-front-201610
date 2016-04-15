@@ -1,6 +1,8 @@
 (function (ng) {
     var mod = ng.module('mainApp', [
-        //'ngCrudMock',
+        'ngCrudMock',// ngCrudMock
+        'authMock', // mock for security
+        'serviceRequestMock', // mock for service request*/
         'categoryModule',
         'contractorModule',
         'customerModule',
@@ -60,6 +62,7 @@
                     })
                     .state('serviceRequest', {
                         url: '/serviceRequest/?description',
+                        /*templateUrl: 'src/modules/serviceRequest/serviceRequest.tpl.html',*/
                         templateUrl: tplUrl,
                         controller: 'serviceRequestCtrl',
                         controllerAs: alias
