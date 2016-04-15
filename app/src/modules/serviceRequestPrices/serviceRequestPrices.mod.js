@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('serviceRequestPricesModule', ['ngCrud']);
+    var mod = ng.module('serviceRequestPricesModule', ['ngCrud', 'restangular']);
 
     mod.constant('serviceRequestContext', 'serviceRequests');
     mod.constant('serviceRequestPriceContext', 'pricelist');

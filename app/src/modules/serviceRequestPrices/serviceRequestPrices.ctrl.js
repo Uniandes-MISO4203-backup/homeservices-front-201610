@@ -1,19 +1,12 @@
 (function (ng) {
     ng.module('serviceRequestPricesModule')
-            .controller('serviceRequestPricesCtrl', ['CrudCreator', '$scope',
-        'serviceRequestContext','serviceRequestPriceContext','serviceRequestPriceModel',
-        function (ngCrud, $scope, parentUrl, url, model) {
-            debugger;
-            ngCrud.extendController({
-                name: 'serviceRequestPrices',
-                displayName: 'Service Request Prices',
-                ctrl: this,
-                scope: $scope,
-                model: model,
-                parentUrl: parentUrl,
-                listUrl: url
-            });
-            this.loadRefOptions();
-            this.fetchRecords();
+            .controller('serviceRequestPricesCtrl', ['$scope','Restangular',
+            'serviceRequestContext', 'serviceRequestPriceContext','$state',
+        function ($scope, Restangular, parentUrl, url,$state) {
+            $scope.serviceRequestId = $state.params.serviceRequestId;
+            $scope.fetchData = function () {
+                $scope.data = Restangular.one(parentUrl, $scope.serviceRequestId).getList(url);
+            }
+            $scope.fetchData();
         }]);
 })(window.angular);

@@ -65,7 +65,7 @@
                         controllerAs: alias
                     })
                     .state('serviceRequestPrices', {
-                        url: '/serviceRequestPrices',
+                        url: '/serviceRequestPrices?serviceRequestId',
                         templateUrl: 'src/modules/serviceRequestPrices/serviceRequestPrices.tpl.html',
                         controller: 'serviceRequestPricesCtrl',
                         controllerAs: 'ctrl'
