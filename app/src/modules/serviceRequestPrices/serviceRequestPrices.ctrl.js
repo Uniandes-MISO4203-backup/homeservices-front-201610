@@ -5,18 +5,19 @@
         function ($scope, Restangular, parentUrl, url,$state) {
             $scope.serviceRequestId = $state.params.serviceRequestId;
             $scope.fetchData = function () {
+                $scope.serviceRequest = Restangular.one(parentUrl, $scope.serviceRequestId).get();
                 $scope.data = Restangular.one(parentUrl, $scope.serviceRequestId).getList(url);
                 /* for testing */
-                $scope.data =[{
+                $scope.data = [{
                         id: 1,
-                        price: 1000, 
+                        price: 1000,
                         description: 'Propongo',
                         priceRequestStatus: 'open',
-                        contractor:{
+                        contractor: {
                             id: 1,
                             name: 'Jose',
                             lastName: 'Perez',
-                            document: 'XXXXX', 
+                            document: 'XXXXX',
                             picture: 'abc',
                             city: 'Bogota',
                             telefono: '555555'
