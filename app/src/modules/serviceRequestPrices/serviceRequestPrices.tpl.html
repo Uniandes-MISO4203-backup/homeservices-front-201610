@@ -3,8 +3,9 @@
 
         <div class="col-md-9">
             <h1>Price List  serviceRequestId:{{serviceRequestId}}
-            {{serviceRequest}}
+            
             </h1>
+            Price Request Limit: {{serviceRequest.priceRequestLimit}}
         </div>
         <div>
                 <table class="table table-striped table-bordered">
@@ -13,7 +14,9 @@
                             <th class="ng-binding ng-scope">Name</th>
                             <th class="ng-binding ng-scope">Last Name</th>
                             <th class="ng-binding ng-scope">Document</th>
+                            <th class="ng-binding ng-scope">Status</th>
                             <th class="ng-binding ng-scope">Price</th>
+                            <th class="ng-binding ng-scope">Description</th>
                             <th class="ng-binding ng-scope">Actions</th>
                         </tr>
                     </thead>
@@ -21,7 +24,9 @@
                         <td>{{item.contractor.name}}</td>
                         <td>{{item.contractor.lastName}}</td>
                         <td>{{item.contractor.document}}</td>
-                        <td>{{item.price}}</td>
+                        <td><span ng-show="currentDate>=priceRequestLimit">{{item.priceRequestStatus}}</span></td>
+                        <td><span ng-show="currentDate>=priceRequestLimit">{{item.price}}</span></td>
+                        <td><span ng-show="currentDate>=priceRequestLimit">{{item.description}}</span></td>
                         <td></td>
                     </tr>
                 </table>
