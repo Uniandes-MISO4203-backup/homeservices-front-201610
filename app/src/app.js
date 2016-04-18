@@ -97,6 +97,12 @@
                         templateUrl: tplUrl,
                         controller: 'myskillsCtrl',
                         controllerAs: alias
+                    })
+                    .state('contractorsByExpectedSkills', {
+                        url: '/contractor?idServiceRequest',
+                        templateUrl: tplUrl,
+                        controller: 'contractorCtrl',
+                        controllerAs: alias
                     });
         }]);
 
