@@ -14,7 +14,8 @@
         'authModule',
         'ui.router',
         'ngCrud',
-        'roleModule'
+        'roleModule',
+        'priceRequestModule'
     ]);
 
     mod.config(['$logProvider', function ($logProvider) {
@@ -97,6 +98,12 @@
                         templateUrl: tplUrl,
                         controller: 'myskillsCtrl',
                         controllerAs: alias
+                    })
+                    .state('priceRequests', {
+                        url: '/priceRequests',
+                        templateUrl: 'src/modules/priceRequest/priceRequest.tpl.html',
+                        controller: 'priceRequestCtrl',
+                        controllerAs: alias
                     });
         }]);
 
@@ -142,6 +149,11 @@
                         label: 'Skills',
                         icon: 'list-alt',
                         state: 'myskills'
+                    },{
+                        id: 'priceRequests',
+                        label: 'Price Requests',
+                        icon: 'list-alt',
+                        state: 'priceRequests'
                     }]});
         }]);
 })(window.angular);
