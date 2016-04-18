@@ -1,5 +1,7 @@
 (function (ng) {
+
     var mod = ng.module('customerModule');
+
 
     mod.controller('customerCtrl', ['CrudCreator', '$scope',
         'customerContext', 'customerModel',
