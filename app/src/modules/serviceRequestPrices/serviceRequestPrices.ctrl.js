@@ -12,7 +12,7 @@
                 });
                 $scope.data = Restangular.one(parentUrl, $scope.serviceRequestId).getList(url);
                 /* for testing */
-                $scope.data = [{
+                /*$scope.data = [{
                         id: 1,
                         price: 1000,
                         description: 'Propongo',
@@ -27,7 +27,7 @@
                             telefono: '555555'
                         }
                     }
-                ];
+                ];*/
             };
             $scope.fetchData();
         }]);
