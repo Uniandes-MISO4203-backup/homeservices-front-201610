@@ -12,6 +12,23 @@
                 model: model,
                 url: url
             });
+
+            var self = this;
+
+            self.recordActions.searchContractors = {
+                 displayName: 'Search Contractors',
+                 icon: 'star',
+                 fn: function (record) {
+
+                     console.log(record);
+                     $state.go('contractorsByExpectedSkills', {idServiceRequest : record.id});
+                 },
+                 show: function () {
+                     return true;
+                 }
+             };
+
+
             this.loadRefOptions();
             this.fetchRecords();
             this.searchByDescription = function (descriptionService) {
@@ -45,5 +62,8 @@
                 scope: $scope,
                 model: model
             });
+
+
+
         }]);
 })(window.angular);
