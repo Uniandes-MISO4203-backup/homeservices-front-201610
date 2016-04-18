@@ -37,6 +37,18 @@
                     $state.go('serviceRequest', {description: descriptionService});
                 }
             };
+            this.recordActions.showPriceList = {
+                displayName: 'Price list',
+                icon: 'star',
+                fn: function (item) {
+                    $state.go('serviceRequestPrices', {serviceRequestId: item.id});
+
+                },
+                show: function () {
+                    return true;
+                }
+            };
+
             this.globalActions.searchDescription = {
                 displayName: 'Search by Description',
                 icon: 'star',

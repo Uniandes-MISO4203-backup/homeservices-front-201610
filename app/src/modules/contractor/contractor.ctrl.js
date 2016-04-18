@@ -68,6 +68,13 @@
         'Restangular', 'skillContext', '$scope',
         'mySkillsContext', 'modalService', 'skillModel', 'CrudCreator',
         function (RestAngular, ctx, $scope, myskillsCtx, modalService, model, ngCrud) {
+            //Servicio para obtener la lista completa de registros que se pueden seleccionar
+            var allSvc = RestAngular.all(ctx),
+                svc = RestAngular.all(myskillsCtx),
+                self = this;
+            $scope.records = svc.getList().$object;
+
+
             ngCrud.extendController({
                 name: 'skills',
                 displayName: 'Skills',
@@ -77,14 +84,7 @@
                 url: myskillsCtx
             });
 
-            //Servicio para obtener la lista completa de registros que se pueden seleccionar
-            var allSvc = RestAngular.all(ctx);
 
-            var svc = RestAngular.all(myskillsCtx);
-
-            $scope.records = svc.getList().$object;
-
-            var self = this;
 
             this.fetchRecords = function () {
                 return svc.getList().then(function (data) {
