@@ -6,16 +6,18 @@
 
             $scope.rejectPriceRequest = function rejectPriceRequest(x) {
                 var priceRequestCopy = Restangular.copy(x);
+                var index = $scope.priceResquest.indexOf(x);
                 priceRequestCopy.status = 'RECHAZADA';
                 priceRequestCopy.put();
-                $scope.priceResquest.splice(x);
+                $scope.priceResquest.splice(index, 1);
             };
 
             $scope.acceptPriceRequest = function acceptPriceRequest(x) {
                 var priceRequestCopy = Restangular.copy(x);
+                var index = $scope.priceResquest.indexOf(x);
                 priceRequestCopy.status = 'ACEPTADA';
                 priceRequestCopy.put();
-                $scope.priceResquest.splice(x);
+                $scope.priceResquest.splice(index, 1);
             };
         }]);
 
