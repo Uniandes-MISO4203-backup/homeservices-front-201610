@@ -10,7 +10,10 @@
                     $scope.serviceRequest = object;
                     $scope.priceRequestLimit = new Date(object.priceRequestLimit);
                 });
-                $scope.data = Restangular.one(parentUrl, $scope.serviceRequestId).getList(url);
+                Restangular.one(parentUrl, $scope.serviceRequestId).getList(url).
+                then(function (data) {
+                    $scope.data = data;
+                });
                 /* for testing */
                 /*$scope.data = [{
                         id: 1,
