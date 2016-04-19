@@ -2,8 +2,8 @@
     var mod = ng.module('contractorModule');
 
     mod.controller('contractorCtrl', ['CrudCreator', '$scope',
-        'contractorContext', 'contractorModel',
-        function (ngCrud, $scope, url, model) {
+        'contractorContext', 'contractorModel','$state',
+        function (ngCrud, $scope, url, model,$state) {
             ngCrud.extendController({
                 name: 'contractor',
                 displayName: 'Contractor',
@@ -12,6 +12,19 @@
                 model: model,
                 url: url
             });
+
+            this.recordActions.createRequest = {
+                displayName: 'Create PriceRequest',
+                icon: 'usd',
+                fn: function (record) {
+                    console.log(record);
+                    $state.go('createContractorPriceRequest', {idContractor : record.id});
+                },
+                show: function () {
+                    return true;
+                }
+            };
+
             this.fetchRecords();
             this.globalActions.create = {
                 show: function () {
