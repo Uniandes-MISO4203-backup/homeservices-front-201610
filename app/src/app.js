@@ -1,10 +1,10 @@
 (function (ng) {
     var mod = ng.module('mainApp', [
-        //'ngCrudMock',
         'categoryModule',
         'contractorModule',
         'customerModule',
         'serviceRequestModule',
+        'serviceRequestPricesModule',
         'skillModule',
         'statusModule',
         'workExperienceModule',
@@ -60,9 +60,16 @@
                     })
                     .state('serviceRequest', {
                         url: '/serviceRequest/?description',
+                        /*templateUrl: 'src/modules/serviceRequest/serviceRequest.tpl.html',*/
                         templateUrl: tplUrl,
                         controller: 'serviceRequestCtrl',
                         controllerAs: alias
+                    })
+                    .state('serviceRequestPrices', {
+                        url: '/serviceRequestPrices?serviceRequestId',
+                        templateUrl: 'src/modules/serviceRequestPrices/serviceRequestPrices.tpl.html',
+                        controller: 'serviceRequestPricesCtrl',
+                        controllerAs: 'ctrl'
                     })
                     .state('skill', {
                         url: '/skill',
@@ -103,6 +110,10 @@
                         url: '/priceRequests',
                         templateUrl: 'src/modules/priceRequest/priceRequest.tpl.html',
                         controller: 'priceRequestCtrl',
+                    .state('contractorsByExpectedSkills', {
+                        url: '/contractor?idServiceRequest',
+                        templateUrl: tplUrl,
+                        controller: 'contractorCtrl',
                         controllerAs: alias
                     });
         }]);
