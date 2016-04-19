@@ -20,7 +20,6 @@
                  icon: 'star',
                  fn: function (record) {
 
-                     console.log(record);
                      $state.go('contractorsByExpectedSkills', {idServiceRequest : record.id});
                  },
                  show: function () {
