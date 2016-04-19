@@ -1,0 +1,30 @@
+
+
+
+
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+<!-- view -->
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+<div ng-app="chatModule">
+    <div class="container"  ng-controller="chatCtrl">
+        <div class="panel" >
+            <div class="panel-heading">
+                <h1>Chat</h1>
+
+                <div class="masthead" ng-repeat="messag in chatM">
+                    {{ messag.userName}}:
+                    {{ messag.userMsg}}
+                </div>
+                <form >
+                    <div style="padding: 10px 10px 10px 10px">
+                        Message: <input size="100%" ng-model="textbox">
+                    </div>
+                    <div>
+                        <button ng-click="send()">Send Message</button> 
+                        
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
+</div>

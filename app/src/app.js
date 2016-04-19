@@ -12,10 +12,16 @@
         'catalogModule',
         'accountModule',
         'authModule',
+        'chatModule',
+        'newChatModule',
         'ui.router',
         'ngCrud',
-        'roleModule'
+        'roleModule',
+        'priceRequestModule'
     ]);
+
+
+
 
     mod.config(['$logProvider', function ($logProvider) {
             $logProvider.debugEnabled(true);
@@ -99,6 +105,22 @@
                         templateUrl: 'src/modules/searchServiceRequest/searchServiceRequest.tpl.html'
 
                     })
+                    .state('chat', {
+                        url: '/chat/:chatName',
+                        templateUrl: 'src/modules/chat/chat.tpl.html',
+                        controller: 'chatCtrl',
+                        controllerAs: alias
+
+
+                    })
+                    .state('newchat', {
+                        url: '/newchat/:customer/:contractor',
+                        templateUrl: 'src/modules/newChat/newChat.tpl.html',
+                        controller: 'newChatCtrl',
+                        controllerAs: alias
+
+
+                    })
                     .state('myskills', {
                         url: '/myskills',
                         templateUrl: tplUrl,
@@ -161,6 +183,11 @@
                         label: 'Skills',
                         icon: 'list-alt',
                         state: 'myskills'
+                    },{
+                        id: 'priceRequests',
+                        label: 'Price Requests',
+                        icon: 'list-alt',
+                        state: 'priceRequests'
                     }]});
         }]);
 })(window.angular);
