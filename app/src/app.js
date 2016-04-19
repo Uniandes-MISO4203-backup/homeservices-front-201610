@@ -106,10 +106,6 @@
                         controller: 'myskillsCtrl',
                         controllerAs: alias
                     })
-                    .state('priceRequests', {
-                        url: '/priceRequests',
-                        templateUrl: 'src/modules/priceRequest/priceRequest.tpl.html',
-                        controller: 'priceRequestCtrl',
                     .state('contractorsByExpectedSkills', {
                         url: '/contractor?idServiceRequest',
                         templateUrl: tplUrl,
