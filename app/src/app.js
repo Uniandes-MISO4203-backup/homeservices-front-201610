@@ -14,7 +14,8 @@
         'authModule',
         'ui.router',
         'ngCrud',
-        'roleModule'
+        'roleModule',
+        'priceRequestModule'
     ]);
 
     mod.config(['$logProvider', function ($logProvider) {
@@ -155,6 +156,11 @@
                         label: 'Skills',
                         icon: 'list-alt',
                         state: 'myskills'
+                    },{
+                        id: 'priceRequests',
+                        label: 'Price Requests',
+                        icon: 'list-alt',
+                        state: 'priceRequests'
                     }]});
         }]);
 })(window.angular);

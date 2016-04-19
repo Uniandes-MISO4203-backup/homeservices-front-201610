@@ -1,0 +1,34 @@
+<div class="container">
+    <div ng-controller="priceRequestCtrl"> 
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Service Request Status</th>
+                    <th>Service Request Description</th>
+                    <th>Price</th>
+                    <th>Price Request Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in priceResquest">
+                    <td>{{ x.status}}</td>
+                    <td>{{ x.serviceRequestDTO.description}}</td>
+                    <td><input type="text" ng-model="x.price"></td>
+                    <td><textarea ng-model="x.description"></textarea></td>
+                    <td>
+			<button type="button" ng-click="acceptPriceRequest(x)">
+                            Accept
+                        </button>
+                    </td>
+                     <td>
+			<button type="button" ng-click="rejectPriceRequest(x)">
+                            Reject
+			</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

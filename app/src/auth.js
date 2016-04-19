@@ -37,6 +37,7 @@
                         $rootScope.category = false;
                         $rootScope.skill = false;
                         $rootScope.status = false;
+                        $rootScope.priceRequests = true;
                     }
                     if (roles.indexOf("admin") !== -1) {
                         $rootScope.catalog = true;
