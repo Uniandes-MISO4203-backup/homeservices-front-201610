@@ -4,7 +4,7 @@
     mod.controller('priceRequestCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
             $scope.priceResquest = Restangular.all('priceRequests').getList().$object;
 
-            $scope.rejectPriceRequest = function rejectPriceRequest(x) {
+            $scope.rejectPriceRequest = function(x) {
                 var priceRequestCopy = Restangular.copy(x);
                 var index = $scope.priceResquest.indexOf(x);
                 priceRequestCopy.status = 'RECHAZADA';
@@ -12,7 +12,7 @@
                 $scope.priceResquest.splice(index, 1);
             };
 
-            $scope.acceptPriceRequest = function acceptPriceRequest(x) {
+            $scope.acceptPriceRequest = function(x) {
                 var priceRequestCopy = Restangular.copy(x);
                 var index = $scope.priceResquest.indexOf(x);
                 priceRequestCopy.status = 'ACEPTADA';
