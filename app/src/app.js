@@ -110,6 +110,12 @@
                         templateUrl: tplUrl,
                         controller: 'contractorCtrl',
                         controllerAs: alias
+                    })
+                    .state('createContractorPriceRequest', {
+                        url: '/contractor?idContractor',
+                        templateUrl: tplUrl,
+                        controller: 'contractorCtrl',
+                        controllerAs: alias
                     });
         }]);
 
