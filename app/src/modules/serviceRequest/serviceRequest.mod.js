@@ -27,6 +27,11 @@
                 type: 'Date',
                 required: true
             }, {
+                name: 'priceRequestLimit',
+                displayName: 'Price Request Limit',
+                type: 'Date',
+                required: true
+            },{
                 name: 'dueDate',
                 displayName: 'Due Date',
                 type: 'Date',
