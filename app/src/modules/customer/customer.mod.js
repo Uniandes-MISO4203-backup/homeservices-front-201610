@@ -1,5 +1,8 @@
 (function (ng) {
+
     var mod = ng.module('customerModule', ['ngCrud']);
+
+
 
     mod.constant('customerContext', 'customers');
 
@@ -37,4 +40,6 @@
                 ctrl: 'CustomerserviceRequestsCtrl',
                 owned: false
             }]});
+
+
 })(window.angular);
