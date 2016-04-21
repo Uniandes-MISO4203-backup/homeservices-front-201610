@@ -1,6 +1,7 @@
 (function (ng) {
-    ng.module('serviceRequestPricesModule')
-            .controller('serviceRequestPricesCtrl', ['$scope','Restangular',
+    var  mod = ng.module('serviceRequestPricesModule');
+
+    mod.controller('serviceRequestPricesCtrl', ['$scope','Restangular',
             'serviceRequestContext', 'serviceRequestPriceContext','$state',
         function ($scope, Restangular, parentUrl, url,$state) {
             $scope.currentDate = new Date();
@@ -16,5 +17,14 @@
                 });
             };
             $scope.fetchData();
+            $scope.create = function (id) {
+                $state.go('newchat', {customer: $scope.serviceRequest.customer.id, contractor: id, service: $scope.serviceRequestId});
+            };
+            $scope.goChat = function (id) {
+                $state.go('chat', {chatName: "CU" + $scope.serviceRequest.customer.id + "CO" + id});
+            };
+
+
+
         }]);
 })(window.angular);

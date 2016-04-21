@@ -114,9 +114,17 @@
 
                     })
                     .state('newchat', {
-                        url: '/newchat/:customer/:contractor',
+                        url: '/newchat/:customer/:contractor/:service',
                         templateUrl: 'src/modules/newChat/newChat.tpl.html',
                         controller: 'newChatCtrl',
+                        controllerAs: alias
+
+
+                    })
+                    .state('priceRequests', {
+                        url: '/priceRequests',
+                        templateUrl: 'src/modules/priceRequest/priceRequest.tpl.html',
+                        controller: 'priceRequestCtrl',
                         controllerAs: alias
 
 
