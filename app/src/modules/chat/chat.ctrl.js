@@ -10,8 +10,13 @@
             $scope.Timer = $interval(function () {
                 if ($stateParams.chatName != null) {
                     chat.get().then(function (results) {
-                        $scope.chatId = results.id;
-                        $scope.chatM = results.listChatMsg;
+                        if (results.id != null) {
+                            $scope.error = $stateParams.chatName;
+                            $scope.chatId = results.id;
+                            $scope.chatM = results.listChatMsg;
+                        } else {
+                            $scope.error = "No Creado";
+                        }
                     });
                 }
             }, 1000);

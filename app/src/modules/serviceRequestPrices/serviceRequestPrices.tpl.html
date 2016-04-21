@@ -25,7 +25,8 @@
                         <td>{{item.priceRequestStatus}}</td>
                         <td><span ng-show="currentDate>=priceRequestLimit">{{item.price}}</span></td>
                         <td><span ng-show="currentDate>=priceRequestLimit">{{item.description}}</span></td>
-                        <td></td>
+                        <td><button class="btn btn-default btn-sm ng-binding ng-scope" ng-click="create( item.contractor.id  )">Create Chat</button>
+                        <button class="btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat( item.contractor.id  )">Ir a Chat</button></td>
                     </tr>
                 </table>
             </div>
