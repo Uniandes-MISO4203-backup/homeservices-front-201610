@@ -43,14 +43,7 @@
                 url: 'categoryContext',
                 options: [],
                 required: true
-            }, {
-                name: 'status',
-                displayName: 'Status',
-                type: 'Reference',
-                url: 'statusContext',
-                options: [],
-                required: true
-            }, {
+            },{
                 name: 'score',
                 displayName: 'Score',
                 type: 'Integer'
