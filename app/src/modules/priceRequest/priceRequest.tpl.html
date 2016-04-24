@@ -17,13 +17,18 @@
                     <td><input type="text" ng-model="x.price"></td>
                     <td><textarea ng-model="x.description"></textarea></td>
                     <td>
-			<button type="button" ng-click="acceptPriceRequest(x)">
+			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="acceptPriceRequest(x)">
                             Accept
                         </button>
                     </td>
                      <td>
-			<button type="button" ng-click="rejectPriceRequest(x)">
+			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="rejectPriceRequest(x)">
                             Reject
+			</button>
+                    </td>
+                    <td>
+			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat(x.serviceRequestDTO.customer.id, x.contractorDTO.id)">
+                            Chat Customer
 			</button>
                     </td>
                 </tr>
