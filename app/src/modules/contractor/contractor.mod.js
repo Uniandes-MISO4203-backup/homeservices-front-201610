@@ -36,6 +36,11 @@
                 displayName: 'Phone',
                 type: 'String',
                 required: true
+            },{
+                name: 'email',
+                displayName: 'email',
+                type: 'String',
+                required: true
             }],
         childs: [{
                 name: 'skills',
