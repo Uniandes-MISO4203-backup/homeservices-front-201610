@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Contractors for: {{serviceRequest.name}}</h2>
+    <div ng-controller="priceRequestCtrl"> 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data">
+                    <td>{{ item.name}}</td>
+                    <td>{{ item.lastName}}</td>
+                    <td>
+			             <button type="button" class="btn btn-default btn-sm ng-binding" ng-click="sendPriceRequest(item)">
+                            Send request
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

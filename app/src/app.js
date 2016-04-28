@@ -2,6 +2,7 @@
     var mod = ng.module('mainApp', [
         'categoryModule',
         'contractorModule',
+        'contractorsByServiceRequestModule',
         'customerModule',
         'serviceRequestModule',
         'serviceRequestPricesModule',
@@ -43,6 +44,12 @@
                         url: '/contractor',
                         templateUrl: tplUrl,
                         controller: 'contractorCtrl',
+                        controllerAs: alias
+                    })
+                    .state('contractorsByServiceRequest', {
+                        url: '/contractorsByServiceRequest?idServiceRequest',
+                        templateUrl: 'src/modules/contractorsByServiceRequest/contractorsByServiceRequest.tpl.html',
+                        controller: 'contractorsByServiceRequestCtrl',
                         controllerAs: alias
                     })
                     .state('contractorBySkill', {
@@ -133,12 +140,6 @@
                         url: '/myskills',
                         templateUrl: tplUrl,
                         controller: 'myskillsCtrl',
-                        controllerAs: alias
-                    })
-                    .state('contractorsByExpectedSkills', {
-                        url: '/contractor?idServiceRequest',
-                        templateUrl: tplUrl,
-                        controller: 'contractorCtrl',
                         controllerAs: alias
                     })
                     .state('createContractorPriceRequest', {
