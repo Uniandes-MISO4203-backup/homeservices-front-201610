@@ -1,0 +1,74 @@
+<div ui-view="" class="ng-scope"> 
+  <toolbar actions="ctrl.globalActions" display-name="displayName" name="name" class="ng-scope ng-isolate-scope"> 
+    <div id="serviceRequest-header"> 
+      <nav role="navigation" class="navbar navbar-default"> 
+        <div class="container-fluid"> 
+          <div class="navbar-header"> 
+            <button data-target="#serviceRequest-navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+              <span class="sr-only"> 
+                Toggle navigation</span> 
+                <span class="icon-bar"> 
+                </span> 
+                <span class="icon-bar"> 
+                </span> 
+                <span class="icon-bar"> 
+                </span> 
+              </button> 
+              <a class="navbar-brand ng-binding"> 
+                Service Request</a> 
+              </div> 
+              <div id="serviceRequest-navbar" class="collapse navbar-collapse"> 
+                <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="create-serviceRequest" ng-repeat="(key, action) in actions"> 
+                  <span class="glyphicon glyphicon-plus"> 
+                  </span> 
+                  Create</button> 
+                  <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="refresh-serviceRequest" ng-repeat="(key, action) in actions"> 
+                    <span class="glyphicon glyphicon-refresh"> 
+                    </span> 
+                    Refresh</button> 
+                    <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope ng-hide" id="save-serviceRequest" ng-repeat="(key, action) in actions"> 
+                      <span class="glyphicon glyphicon-save"> 
+                      </span> 
+                      Save</button> 
+                      <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope ng-hide" id="cancel-serviceRequest" ng-repeat="(key, action) in actions"> 
+                        <span class="glyphicon glyphicon-remove"> 
+                        </span> 
+                        Cancel</button> 
+                        <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="searchDescription-serviceRequest" ng-repeat="(key, action) in actions"> 
+                          <span class="glyphicon glyphicon-star"> 
+                          </span> 
+                          Search by Description</button>                           
+                        </div> 
+                      </div> 
+                    </nav> 
+                  </div> 
+                </toolbar> 
+                
+                <div ng-if="!ctrl.editMode" class="ng-scope"> 
+                  
+                  <div ng-if="!ctrl.asGallery" class="ng-scope"> 
+                    <list-records actions="ctrl.recordActions" records="records" fields="model.fields" class="ng-isolate-scope"> 
+                    <div> 
+                      <table class="table table-striped table-bordered"> 
+                        <thead> 
+                          <tr> 
+
+                            <th ng-repeat="column in fields" class="ng-binding ng-scope"> 
+                              Name</th> 
+                              
+
+                            </tr> 
+                          </thead> 
+                          <tbody> 
+                            <tr ng-repeat="record in records" class="ng-scope">
+                              <td id="0-name" ng-switch="column.type" ng-repeat="column in fields" class="ng-scope"> 
+
+                              </td> 
+                            </tr> 
+                          </tbody> 
+                        </table> 
+                      </div> 
+                    </list-records> 
+                  </div> 
+                </div> 
+              </div> 

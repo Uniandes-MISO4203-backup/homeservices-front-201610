@@ -65,8 +65,8 @@
                     })
                     .state('serviceRequest', {
                         url: '/serviceRequest/?description',
-                        /*templateUrl: 'src/modules/serviceRequest/serviceRequest.tpl.html',*/
-                        templateUrl: tplUrl,
+                        templateUrl: 'src/modules/serviceRequest/serviceRequest.tpl.html',
+                        //templateUrl: tplUrl,
                         controller: 'serviceRequestCtrl',
                         controllerAs: alias
                     })
