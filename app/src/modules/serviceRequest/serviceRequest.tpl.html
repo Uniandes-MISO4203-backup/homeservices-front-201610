@@ -1,74 +1,42 @@
-<div ui-view="" class="ng-scope"> 
-  <toolbar actions="ctrl.globalActions" display-name="displayName" name="name" class="ng-scope ng-isolate-scope"> 
-    <div id="serviceRequest-header"> 
-      <nav role="navigation" class="navbar navbar-default"> 
-        <div class="container-fluid"> 
-          <div class="navbar-header"> 
-            <button data-target="#serviceRequest-navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
-              <span class="sr-only"> 
-                Toggle navigation</span> 
-                <span class="icon-bar"> 
-                </span> 
-                <span class="icon-bar"> 
-                </span> 
-                <span class="icon-bar"> 
-                </span> 
-              </button> 
-              <a class="navbar-brand ng-binding"> 
-                Service Request</a> 
-              </div> 
-              <div id="serviceRequest-navbar" class="collapse navbar-collapse"> 
-                <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="create-serviceRequest" ng-repeat="(key, action) in actions"> 
-                  <span class="glyphicon glyphicon-plus"> 
-                  </span> 
-                  Create</button> 
-                  <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="refresh-serviceRequest" ng-repeat="(key, action) in actions"> 
-                    <span class="glyphicon glyphicon-refresh"> 
-                    </span> 
-                    Refresh</button> 
-                    <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope ng-hide" id="save-serviceRequest" ng-repeat="(key, action) in actions"> 
-                      <span class="glyphicon glyphicon-save"> 
-                      </span> 
-                      Save</button> 
-                      <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope ng-hide" id="cancel-serviceRequest" ng-repeat="(key, action) in actions"> 
-                        <span class="glyphicon glyphicon-remove"> 
-                        </span> 
-                        Cancel</button> 
-                        <button ng-click="action.fn()" ng-show="action.show()" class="btn btn-default navbar-btn ng-binding ng-scope" id="searchDescription-serviceRequest" ng-repeat="(key, action) in actions"> 
-                          <span class="glyphicon glyphicon-star"> 
-                          </span> 
-                          Search by Description</button>                           
-                        </div> 
-                      </div> 
-                    </nav> 
-                  </div> 
-                </toolbar> 
-                
-                <div ng-if="!ctrl.editMode" class="ng-scope"> 
-                  
-                  <div ng-if="!ctrl.asGallery" class="ng-scope"> 
-                    <list-records actions="ctrl.recordActions" records="records" fields="model.fields" class="ng-isolate-scope"> 
-                    <div> 
-                      <table class="table table-striped table-bordered"> 
-                        <thead> 
-                          <tr> 
-
-                            <th ng-repeat="column in fields" class="ng-binding ng-scope"> 
-                              Name</th> 
-                              
-
-                            </tr> 
-                          </thead> 
-                          <tbody> 
-                            <tr ng-repeat="record in records" class="ng-scope">
-                              <td id="0-name" ng-switch="column.type" ng-repeat="column in fields" class="ng-scope"> 
-
-                              </td> 
-                            </tr> 
-                          </tbody> 
-                        </table> 
-                      </div> 
-                    </list-records> 
-                  </div> 
-                </div> 
-              </div> 
+<toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)">{{alert.msg}}</alert>
+<div ng-if="!ctrl.editMode">
+    <div ng-if="ctrl.asGallery">
+        <gallery
+            fields="model.fields"
+            records="records"
+            actions="ctrl.recordActions">
+        </gallery>
+    </div>
+    <div ng-if="!ctrl.asGallery">
+        <list-records
+            fields="model.fields"
+            records="records"
+            actions="ctrl.recordActions">
+        </list-records>
+    </div>
+    <div class="text-center">
+        <pagination ng-if="ctrl.numPages > 1" num-pages="ctrl.numPages" total-items="ctrl.totalItems"
+                    ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage"
+                    max-size="ctrl.maxSize" class="pagination-md" boundary-links="true" rotate="false"></pagination>
+    </div>
+</div>
+<div ng-if="ctrl.editMode">
+    <div class="well">
+        <crud-form name="name" fields="model.fields" record="currentRecord"></crud-form>
+    </div>
+    <div id="childs" ng-if="model.childs">
+        <ul class="nav nav-tabs">
+            <li ng-repeat="child in model.childs"
+                role="presentation"
+                ng-class="{active: tab === child.name}"
+                ng-if="child.owned || currentRecord.id">
+                <a href ng-click="ctrl.changeTab(child.name)">{{child.displayName}}</a>
+            </li>
+        </ul>
+        <div ng-repeat="child in model.childs"
+             ng-if="tab === child.name && (child.owned || currentRecord.id)">
+            <div child-controller></div>
+        </div>
+    </div>
+</div>
