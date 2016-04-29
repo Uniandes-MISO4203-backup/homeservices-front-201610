@@ -59,9 +59,10 @@
                 displayName: 'Finish contract',
                 icon: 'check',
                 fn: function (record) {
-                    Restangular.one(url, record.id).customPUT('finishContract', {}).
+                    Restangular.one(url, record.id).customPUT({}, 'finishContract').
                     then(function () {
-
+                        $scope.alerts = [{type: 'success', msg: 'Contract finished'}];
+                        self.fetchRecords();
                     });
                 },
                 show: function (record) {
