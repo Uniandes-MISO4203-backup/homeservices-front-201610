@@ -23,11 +23,11 @@
             $scope.goChat = function (id) {
                 $state.go('chat', {chatName: "CU" + $scope.serviceRequest.customer.id + "CO" + id});
             };
-            $scope.hire = function(item){
-                Restangular.one(parentUrl, $scope.serviceRequestId).one("hire",item.id).put().
-                then(function (data) {
+            $scope.hire = function (item) {
+                Restangular.one(parentUrl, $scope.serviceRequestId).one("hire", item.id).put().
+                then(function () {
                     $scope.fetchData();
                 });
-            }
+            };
         }]);
 })(window.angular);

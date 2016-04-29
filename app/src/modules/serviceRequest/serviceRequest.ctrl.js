@@ -15,6 +15,14 @@
 
             var self = this;
 
+            self.recordActions.edit.show=function(record){
+                return undefined !== record.status && record.status.id==1;
+            };
+
+            self.recordActions.delete.show=function(record){
+                return undefined !== record.status && record.status.id==1;
+            };
+
             self.recordActions.searchContractors = {
                  displayName: 'Search Contractors',
                  icon: 'star',
@@ -22,8 +30,8 @@
 
                      $state.go('contractorsByExpectedSkills', {idServiceRequest : record.id});
                  },
-                 show: function () {
-                     return true;
+                 show: function (record) {
+                     return record.status.id==1;
                  }
              };
 

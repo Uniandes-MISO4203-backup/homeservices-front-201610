@@ -44,10 +44,6 @@
                 options: [],
                 required: true
             },{
-                name: 'score',
-                displayName: 'Score',
-                type: 'Integer'
-            },{
                 name: 'description',
                 displayName: 'Description Service',
                 type: 'String',
