@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('serviceRequestModule', ['ngCrud']);
+    var mod = ng.module('serviceRequestModule', ['ngCrud','restangular']);
 
     mod.constant('serviceRequestContext', 'serviceRequests');
 

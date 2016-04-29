@@ -2,8 +2,8 @@
     var mod = ng.module('serviceRequestModule');
 
     mod.controller('serviceRequestCtrl', ['CrudCreator', '$scope',
-        'serviceRequestContext', 'serviceRequestModel','$state',
-        function (ngCrud, $scope, url, model,$state) {
+        'serviceRequestContext', 'serviceRequestModel','$state','Restangular',
+        function (ngCrud, $scope, url, model,$state,Restangular) {
             ngCrud.extendController({
                 name: 'serviceRequest',
                 displayName: 'Service Request',
@@ -31,7 +31,7 @@
                      $state.go('contractorsByServiceRequest', {idServiceRequest : record.id});
                  },
                  show: function (record) {
-                     return record.status.id === 1;
+                     return undefined !== record.status && record.status.id === 1;
                  }
              };
 
@@ -53,6 +53,19 @@
                 },
                 show: function () {
                     return true;
+                }
+            };
+            this.recordActions.finishContract = {
+                displayName: 'Finish contract',
+                icon: 'check',
+                fn: function (record) {
+                    Restangular.one(url, record.id).customPUT('finishContract', {}).
+                    then(function () {
+
+                    });
+                },
+                show: function (record) {
+                    return undefined !== record.status && record.status.id === 2;
                 }
             };
 
