@@ -28,7 +28,7 @@
                  icon: 'star',
                  fn: function (record) {
 
-                     $state.go('contractorsByExpectedSkills', {idServiceRequest : record.id});
+                     $state.go('contractorsByServiceRequest', {idServiceRequest : record.id});
                  },
                  show: function (record) {
                      return record.status.id === 1;
