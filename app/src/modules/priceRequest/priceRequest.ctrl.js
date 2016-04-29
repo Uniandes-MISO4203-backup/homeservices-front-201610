@@ -3,7 +3,6 @@
 
     mod.controller('priceRequestCtrl', ['$scope', 'Restangular','$state', function ($scope, Restangular, $state) {
             $scope.priceResquest = Restangular.all('priceRequests').getList().$object;
-            // $scope.serviceRequestT = Restangular.one('serviceRequests', $scope.priceResquest[0].serviceRequestDTO.id).get();
 
             $scope.rejectPriceRequest = function (x) {
                 var priceRequestCopy = Restangular.copy(x);
