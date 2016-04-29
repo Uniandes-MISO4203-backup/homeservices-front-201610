@@ -21,15 +21,15 @@
                 <tr ng-repeat='item in data' ng-if="data.length > 0">
                     <td>{{item.contractor.name}}</td>
                     <td>{{item.contractor.lastName}}</td>
-                    <td>{{item.priceRequestStatus}}</td>
+                    <td class='price-state'>{{item.priceRequestStatus}}</td>
                     <td><span ng-show="currentDate>=priceRequestLimit">{{item.price}}</span></td>
                     <td><span ng-show="currentDate>=priceRequestLimit">{{item.description}}</span></td>
                     <td>
-                        <button class="btn btn-default btn-sm ng-binding ng-scope" ng-click="create( item.contractor.id  )" 
+                        <button class="create-chat-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="create( item.contractor.id  )" 
                             ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">Create Chat</button>
-                        <button class="btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat( item.contractor.id  )"
+                        <button class="go-chat-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat( item.contractor.id  )"
                             ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">Go to Chat</button>
-                        <button class="btn btn-default btn-sm ng-binding ng-scope" ng-click="hire( item )"
+                        <button class="hire-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="hire( item )"
                             ng-show="serviceRequest.status.id==1 && currentDate>=priceRequestLimit">Hire</button>
                     </td>
                 </tr>
