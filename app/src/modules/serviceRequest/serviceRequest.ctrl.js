@@ -15,12 +15,12 @@
 
             var self = this;
 
-            self.recordActions.edit.show=function(record){
-                return undefined !== record.status && record.status.id==1;
+            self.recordActions.edit.show = function (record) {
+                return undefined !== record.status && record.status.id === 1;
             };
 
-            self.recordActions.delete.show=function(record){
-                return undefined !== record.status && record.status.id==1;
+            self.recordActions.delete.show = function (record) {
+                return undefined !== record.status && record.status.id === 1;
             };
 
             self.recordActions.searchContractors = {
@@ -31,7 +31,7 @@
                      $state.go('contractorsByExpectedSkills', {idServiceRequest : record.id});
                  },
                  show: function (record) {
-                     return record.status.id==1;
+                     return record.status.id === 1;
                  }
              };
 
