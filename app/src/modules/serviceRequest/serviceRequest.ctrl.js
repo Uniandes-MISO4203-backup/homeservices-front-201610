@@ -4,6 +4,7 @@
     mod.controller('serviceRequestCtrl', ['CrudCreator', '$scope',
         'serviceRequestContext', 'serviceRequestModel','$state','Restangular',
         function (ngCrud, $scope, url, model,$state,Restangular) {
+            var self = this;
             ngCrud.extendController({
                 name: 'serviceRequest',
                 displayName: 'Service Request',
@@ -12,9 +13,6 @@
                 model: model,
                 url: url
             });
-
-            var self = this;
-
             self.recordActions.edit.show = function (record) {
                 return undefined !== record.status && record.status.id === 1;
             };
