@@ -2,8 +2,8 @@
     var mod = ng.module('chatModule');
     mod.controller('chatCtrl', ['Restangular', '$scope', '$stateParams', '$interval',
         function (Restangular, $scope, $stateParams, $interval) {
-            var chat = Restangular.one('chat', $stateParams.chatName);
-            var chatMsg = Restangular.all('chatmsg');
+            var chat = Restangular.one('chat', $stateParams.chatName),
+                chatMsg = Restangular.all('chatmsg');
             $scope.local = $stateParams.chatName;
             $scope.user = Restangular.all("users").customGET('me').$object;
 

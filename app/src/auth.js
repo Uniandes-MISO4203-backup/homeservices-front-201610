@@ -3,6 +3,7 @@
     mod.controller('roleCtrl', ['$rootScope','Restangular', function ($rootScope,Restangular) {
 
         $rootScope.auth = function () {
+            var roles;
             Restangular.all("users").customGET('me').then(function (response) {
                 if (response == null) {
                     $rootScope.catalog = false;
@@ -15,7 +16,7 @@
                     $rootScope.skill = false;
                     $rootScope.status = false;
                 }else {
-                    var roles = $rootScope.roles = response.roles;
+                    roles = $rootScope.roles = response.roles;
                     if (roles.indexOf("customer") !== -1) {
                         $rootScope.catalog = true;
                         $rootScope.profile = true;

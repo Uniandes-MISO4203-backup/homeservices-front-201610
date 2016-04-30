@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('serviceRequestModule', ['ngCrud']);
+    var mod = ng.module('serviceRequestModule', ['ngCrud','restangular']);
 
     mod.constant('serviceRequestContext', 'serviceRequests');
 
@@ -43,17 +43,6 @@
                 url: 'categoryContext',
                 options: [],
                 required: true
-            }, {
-                name: 'status',
-                displayName: 'Status',
-                type: 'Reference',
-                url: 'statusContext',
-                options: [],
-                required: true
-            }, {
-                name: 'score',
-                displayName: 'Score',
-                type: 'Integer'
             },{
                 name: 'description',
                 displayName: 'Description Service',

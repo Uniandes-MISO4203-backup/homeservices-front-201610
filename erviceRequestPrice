@@ -1,0 +1,66 @@
+diff --git a/app/src/modules/serviceRequest/serviceRequest.ctrl.js b/app/src/modules/serviceRequest/serviceRequest.ctrl.js
+index a696b18..8294c48 100644
+--- a/app/src/modules/serviceRequest/serviceRequest.ctrl.js
++++ b/app/src/modules/serviceRequest/serviceRequest.ctrl.js
+@@ -2,8 +2,8 @@
+     var mod = ng.module('serviceRequestModule');
+ 
+     mod.controller('serviceRequestCtrl', ['CrudCreator', '$scope',
+-        'serviceRequestContext', 'serviceRequestModel','$state',
+-        function (ngCrud, $scope, url, model,$state) {
++        'serviceRequestContext', 'serviceRequestModel','$state','Restangular',
++        function (ngCrud, $scope, url, model,$state,Restangular) {
+             ngCrud.extendController({
+                 name: 'serviceRequest',
+                 displayName: 'Service Request',
+@@ -31,7 +31,7 @@
+                      $state.go('contractorsByServiceRequest', {idServiceRequest : record.id});
+                  },
+                  show: function (record) {
+-                     return record.status.id === 1;
++                     return undefined !== record.status && record.status.id === 1;
+                  }
+              };
+ 
+@@ -55,6 +55,19 @@
+                     return true;
+                 }
+             };
++            this.recordActions.finishContract = {
++                displayName: 'Finish contract',
++                icon: 'check',
++                fn: function (record) {
++                    Restangular.one(url, record.id).customPUT('finishContract').
++                    then(function () {
++
++                    });
++                },
++                show: function (record) {
++                    return undefined !== record.status && record.status.id === 2;
++                }
++            };
+ 
+             this.globalActions.searchDescription = {
+                 displayName: 'Search by Description',
+diff --git a/app/src/modules/serviceRequest/serviceRequest.mod.js b/app/src/modules/serviceRequest/serviceRequest.mod.js
+index 7acee33..72bd7eb 100644
+--- a/app/src/modules/serviceRequest/serviceRequest.mod.js
++++ b/app/src/modules/serviceRequest/serviceRequest.mod.js
+@@ -1,5 +1,5 @@
+ (function (ng) {
+-    var mod = ng.module('serviceRequestModule', ['ngCrud']);
++    var mod = ng.module('serviceRequestModule', ['ngCrud','restangular']);
+ 
+     mod.constant('serviceRequestContext', 'serviceRequests');
+ 
+diff --git a/app/src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js b/app/src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js
+index 9de0e89..dce69e1 100644
+--- a/app/src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js
++++ b/app/src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js
+@@ -1,5 +1,5 @@
+ (function (ng) {
+-    var  mod = ng.module('serviceRequestPricesModule');
++    var  mod = ng.module('serviceRequestPricesModule', ['restangular']);
+ 
+     mod.controller('serviceRequestPricesCtrl', ['$scope','Restangular',
+             'serviceRequestContext', 'serviceRequestPriceContext','$state',

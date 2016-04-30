@@ -1,0 +1,69 @@
+<toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)">{{alert.msg}}</alert>
+<div ng-if="!ctrl.editMode">
+    <div ng-if="ctrl.asGallery">
+        <gallery
+            fields="model.fields"
+            records="records"
+            actions="ctrl.recordActions">
+        </gallery>
+    </div>
+    <div ng-if="!ctrl.asGallery">
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th ng-if="checklist" id="check-all"><input type="checkbox" ng-click="checkAll()"/></th>
+                        <th ng-repeat="column in model.fields">{{column.displayName}}</th>
+                        <th >Status</th>
+                        <th ng-if="ctrl.recordActions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="record in records">
+                        <td ng-if="checklist" id="{{$index}}-selected"><input type="checkbox" ng-model="record.selected"/></td>
+                        <td ng-repeat="column in model.fields" ng-switch="column.type" id="{{$parent.$index}}-{{column.name}}">
+                            <div ng-switch-when="Computed">{{column.fn(record)}}</div>
+                            <div ng-switch-when="Currency">{{record[column.name] | currency}}</div>
+                            <div ng-switch-when="Date">{{record[column.name]| date}}</div>
+                            <div ng-switch-when="Reference">{{record[column.name].name}}</div>
+                            <div ng-switch-when="Boolean"><span ng-if="record[column.name] != undefined" class="glyphicon" ng-class="{'glyphicon-check': record[column.name], 'glyphicon-unchecked': !record[column.name]}"></span></div>
+                            <div ng-switch-when="Image"><a ng-href="{{record[column.name]}}">URL</a></div>
+                            <div ng-switch-when="String">{{record[column.name]}}</div>
+                            <div ng-switch-default>{{record[column.name]}}</div>
+                        </td>
+                        <td>{{record.status.name}}</td>
+                        <td ng-if="ctrl.recordActions">
+                            <button ng-repeat="(key, action) in ctrl.recordActions" id="{{$parent.$index}}-{{key}}-btn" class="btn btn-default btn-sm" ng-class="action.class" ng-show="action.show(record)" ng-click="action.fn(record)"><span class="glyphicon glyphicon-{{action.icon}}"></span> {{action.displayName}}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <pagination ng-if="ctrl.numPages > 1" num-pages="ctrl.numPages" total-items="ctrl.totalItems"
+                    ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage"
+                    max-size="ctrl.maxSize" class="pagination-md" boundary-links="true" rotate="false"></pagination>
+    </div>
+</div>
+<div ng-if="ctrl.editMode">
+    <div class="well">
+        <crud-form name="name" fields="model.fields" record="currentRecord"></crud-form>
+    </div>
+    <div id="childs" ng-if="model.childs">
+        <ul class="nav nav-tabs">
+            <li ng-repeat="child in model.childs"
+                role="presentation"
+                ng-class="{active: tab === child.name}"
+                ng-if="child.owned || currentRecord.id">
+                <a href ng-click="ctrl.changeTab(child.name)">{{child.displayName}}</a>
+            </li>
+        </ul>
+        <div ng-repeat="child in model.childs"
+             ng-if="tab === child.name && (child.owned || currentRecord.id)">
+            <div child-controller></div>
+        </div>
+    </div>
+</div>

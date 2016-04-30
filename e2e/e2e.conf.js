@@ -2,7 +2,7 @@ var specs=['e2e/specs/*.js']
 if(process.env.TEST)
     specs=[process.env.TEST]
 exports.config = {
-    allScriptsTimeout: 11000,
+    allScriptsTimeout: 20000,
     specs: specs,
     capabilities: {
         'browserName': 'firefox'
