@@ -92,8 +92,9 @@ describe('ServiceRequest E2E Testing', function () {
 
     it('should delete the serviceRequest', function () {
         browser.get('#/serviceRequest/');
-        element(by.id('0-delete-btn')).click();
+        browser.refresh();
         //browser.pause();
+        element(by.id('0-delete-btn')).click();
         expect(element.all(by.css('tbody>tr')).count()).toEqual(2);
     });
 
@@ -104,9 +105,11 @@ describe('ServiceRequest E2E Testing', function () {
         while((new Date()).getTime()< unixtime+1000);
         expect(browser.getCurrentUrl()).toContain('#/serviceRequestPrices?serviceRequestId');
     });
-    it('R2.1 click to pricelist', function () {
+    it('R12.1 click to Finished', function () {
         browser.get('#/serviceRequest/');
         element(by.id('1-finishContract-btn')).click();
+        //browser.pause();
+        expect(browser.getCurrentUrl()).toContain('#/contractorReview?serviceRequestId');
         expect(element.all(by.css('.alert')).count()).toEqual(1);
     });
 });
