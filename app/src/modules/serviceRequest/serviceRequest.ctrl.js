@@ -60,7 +60,7 @@
                     Restangular.one(url, record.id).customPUT({}, 'finishContract').
                     then(function () {
                         $scope.alerts = [{type: 'success', msg: 'Contract finished'}];
-                        self.fetchRecords();
+                        $state.go('contractorReview', {serviceRequestId : record.id});
                     });
                 },
                 show: function (record) {

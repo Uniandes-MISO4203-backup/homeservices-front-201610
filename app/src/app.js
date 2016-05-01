@@ -2,6 +2,7 @@
     var mod = ng.module('mainApp', [
         'categoryModule',
         'contractorModule',
+        'contractorReviewModule',
         'contractorsByServiceRequestModule',
         'customerModule',
         'serviceRequestModule',
@@ -62,6 +63,12 @@
                         url: '/contractor?experienceName',
                         templateUrl: tplUrl,
                         controller: 'contractorCtrl',
+                        controllerAs: alias
+                    })
+                    .state('contractorReview', {
+                        url: '/contractorReview?serviceRequestId',
+                        templateUrl: 'src/modules/contractorReview/contractorReview.tpl.html',
+                        controller: 'contractorReviewCtrl',
                         controllerAs: alias
                     })
                     .state('customer', {
