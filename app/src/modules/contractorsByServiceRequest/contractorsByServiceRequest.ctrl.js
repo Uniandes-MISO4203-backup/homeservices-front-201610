@@ -18,7 +18,11 @@
             $scope.fetchData();
 
             $scope.sendPriceRequest = function (x) {
-                $window.alert('Luis enviar el servicio acá ' + x.id);
+                Restangular.one('priceRequests', x.id).post().
+                then(function () {
+                    $window.alert('Se creo solicitud de cotización!');
+                });
+
             };
         }]);
 
