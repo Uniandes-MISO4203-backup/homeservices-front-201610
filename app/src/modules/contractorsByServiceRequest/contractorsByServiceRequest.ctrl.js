@@ -5,6 +5,7 @@
         function ($scope, Restangular, $state, $window, $modal) {
             $scope.idServiceRequest = $state.params.idServiceRequest;
             $scope.fetchData = function () {
+                console.warn("fetchData");
                 //Web service carga datos del service request
                 Restangular.one('serviceRequests', $scope.idServiceRequest).get().then(function (object) {
                     $scope.serviceRequest = object;
