@@ -1,8 +1,8 @@
 (function (ng) {
     var mod = ng.module('contractorsByServiceRequestModule', ['restangular']);
 
-    mod.controller('contractorsByServiceRequestCtrl', ['$scope', 'Restangular','$state', '$window',
-        function ($scope, Restangular, $state, $window) {
+    mod.controller('contractorsByServiceRequestCtrl', ['$scope', 'Restangular','$state', '$window','$modal',
+        function ($scope, Restangular, $state, $window, $modal) {
             $scope.idServiceRequest = $state.params.idServiceRequest;
             $scope.fetchData = function () {
                 //Web service carga datos del service request
@@ -17,9 +17,39 @@
             };
             $scope.fetchData();
 
+            $scope.show = function (item) {
+                $modal.open({
+                    templateUrl: "src/modules/contractorsByServiceRequest/contractorsShow.tpl.html",
+                    resolve: {item: item},
+                    controller: 'contractorsModalShowCtrl', controllerAs: 'ctrl'
+                });
+            };
+
             $scope.sendPriceRequest = function (x) {
                 $window.alert('Luis enviar el servicio acá ' + x.id);
             };
         }]);
+    mod.controller('contractorsModalShowCtrl', ['$scope', 'Restangular','$state', '$window','$modalInstance','item',
+        function ($scope, Restangular, $state, $window, $modalInstance, item) {
+        $scope.item = item;
+        $scope.fetchData = function () {
+            Restangular.one('contractors', item.id).getList('reviews').then(function (result) {
+                $scope.counter = [0,0,0,0,0];
+                angular.forEach(result, function (review) {
+                    if (review.value && review.value > 0) {
+                        $scope.counter[review.value - 1] = $scope.counter[review.value - 1] + 1;
+                    }
+                });
+                $scope.reviews = result;
+            });
+        };
+        $scope.fetchData();
+        $scope.ok = function () {
+            $modalInstance.close();
+        };
+        $scope.getTimes = function (n) {
+            return new Array(n);
+        };
+    }]);
 
 })(window.angular);
