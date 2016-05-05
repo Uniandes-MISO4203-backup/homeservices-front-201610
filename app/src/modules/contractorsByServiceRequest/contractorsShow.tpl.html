@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title">Contrctor {{item.name}} {{item.lastName}}</h3>
+</div>
+<div class="modal-body">
+    <h4>How was the scores for this contractor? (based on {{reviews.length}} reviews)</h4>
+    <ul>
+        <li ng-repeat="index in [4,3,2,1,0]"  style='list-style: none'>
+            {{counter[index]}}: 
+            <span ng-repeat="t in getTimes(index+1) track by $index" class='glyphicon glyphicon-star'>
+            </span>
+        </li>
+    </ul>
+    <h4>What the customers says about this contractor?</h4>
+    <ul>
+        <li ng-repeat="review in reviews" style='list-style: none'>
+            <span ng-repeat="t in getTimes(review.value) track by $index" class='glyphicon glyphicon-star'>
+            </span>
+            {{review.name}}
+        </li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success btn-sm" ng-click="ok()"><span class="glyphicon glyphicon-ok"></span> OK</button>
+</div>

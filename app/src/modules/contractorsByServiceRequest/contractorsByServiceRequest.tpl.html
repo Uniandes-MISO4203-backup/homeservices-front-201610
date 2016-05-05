@@ -14,7 +14,10 @@
                     <td>{{ item.name}}</td>
                     <td>{{ item.lastName}}</td>
                     <td>
-			             <button type="button" class="btn btn-default btn-sm ng-binding" ng-click="sendPriceRequest(item)">
+                        <button type="button" class="btn btn-primary btn-sm ng-binding" ng-click="show(item)">
+                            Show
+                        </button>
+			             <button type="button" class="btn btn-success btn-sm ng-binding" ng-click="sendPriceRequest(item)">
                             Send request
                         </button>
                     </td>
