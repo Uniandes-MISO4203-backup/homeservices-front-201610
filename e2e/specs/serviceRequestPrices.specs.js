@@ -1,6 +1,3 @@
-(function (ng) {
-    ng
-});
 describe('ServiceRequest E2E Testing', function () {
 
 	browser.driver.manage().window().maximize();

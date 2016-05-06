@@ -10,13 +10,10 @@
         <div class="panel" >
             <div class="panel-heading">
                 <h1>Create Chat</h1>
-
-                
-                <form >
-                    <date-picker value="fecha" model="fecha" ></date-picker>
+                <form id='newChatForm'>
+                    <date-picker id='newChatDatePicker' value="fecha" model="fecha" ></date-picker>
                     <div>
-                        <button ng-click="send2()">Create Chat</button> 
-                        
+                        <button class='submit' ng-click="send2()">Create Chat</button> 
                     </div>
                 </form>
             </div>

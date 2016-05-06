@@ -10,18 +10,18 @@
         <div class="panel" >
             <div class="panel-heading">
                 <h1>Chat: {{error}}</h1>
-
-                <div class="masthead" ng-repeat="messag in chatM">
-                    {{ messag.userName}}:
-                    {{ messag.userMsg}}
+                <div class="messages">
+                    <div class="masthead" ng-repeat="messag in chatM">
+                        {{ messag.userName}}:
+                        {{ messag.userMsg}}
+                    </div>
                 </div>
                 <form >
                     <div style="padding: 10px 10px 10px 10px">
-                        Message: <input size="100%" ng-model="textbox">
+                        Message: <input size="100%" ng-model="textbox" class='input'>
                     </div>
                     <div>
-                        <button ng-click="send()">Send Message</button> 
-                        
+                        <button class='submit' ng-click="send()">Send Message</button> 
                     </div>
                 </form>
             </div>
