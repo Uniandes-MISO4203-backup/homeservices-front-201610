@@ -9,7 +9,8 @@ describe('contractorsByServiceRequests E2E Testing', function () {
             mod.run(["$httpBackend",
                 function($httpBackend){
                     baseUrl='api';
-                    var recordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)/(\\w+)');
+                    var resourceRecordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)/(\\w+)');
+                    var recordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)');
                     var array = [
                         {name: 'Excelent service', value: 5},
                         {name: 'bad service', value: 2},
@@ -17,9 +18,13 @@ describe('contractorsByServiceRequests E2E Testing', function () {
                         {name: 'Excelent service 3', value: 5},
                         {name: 'Excelent service 4', value: 5}
                     ]
-                    $httpBackend.whenGET(recordUrl).respond(function (method, url) {
+                    $httpBackend.whenGET(resourceRecordUrl).respond(function (method, url) {
                         console.warn('GET');
                         return [200, array, {}];
+                    });
+                    $httpBackend.whenPOST(recordUrl).respond(function (method, url) {
+                        console.warn('POST');
+                        return [200, {}, {}];
                     });
                 }
             ]);
@@ -43,7 +48,14 @@ describe('contractorsByServiceRequests E2E Testing', function () {
     it('R12-3 read comments', function () {
         browser.get('#/contractorsByServiceRequest?idServiceRequest=1');
         element(by.css('.btn-show')).click();
-
         expect(element(by.css('.score-5 span.score')).getText()).toBe('4');
+        element(by.css('.btn-ok')).click();
+    });
+
+
+    it('R7 send request', function () {
+        browser.get('#/contractorsByServiceRequest?idServiceRequest=1');
+        element(by.css('.btn-send-request')).click();
+        expect(element.all(by.css('.alert')).count()).toEqual(1);
     });
 });

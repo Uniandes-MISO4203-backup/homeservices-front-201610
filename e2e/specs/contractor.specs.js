@@ -31,6 +31,11 @@ describe('Contractor E2E Testing', function () {
         element(by.id('0-edit-btn')).click();
         element(by.id('name')).clear().sendKeys('New name');
         element(by.id('lastName')).clear().sendKeys('New lastname');
+        
+        element.all(by.css("#childs a")).get(0).click();
+        element.all(by.css("#childs a")).get(1).click();
+        element.all(by.css("#childs a")).get(2).click();
+
 
         element(by.id('save-contractor')).click();
 

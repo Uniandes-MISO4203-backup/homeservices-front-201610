@@ -29,7 +29,7 @@
             $scope.sendPriceRequest = function (x) {
                 Restangular.one('priceRequests', x.id).post().
                 then(function () {
-                    $window.alert('Se creo solicitud de cotización!');
+                    $scope.alerts = [{type: 'success', msg: 'Se creo solicitud de cotización!'}];
                 });
 
             };
