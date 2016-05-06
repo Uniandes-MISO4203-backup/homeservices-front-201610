@@ -1,5 +1,5 @@
 (function (ng) {
-    var mod = ng.module('contractorsByServiceRequestModule', ['restangular']);
+    var mod = ng.module('contractorsByServiceRequestModule', ['restangular','keats.youtube']);
 
     mod.controller('contractorsByServiceRequestCtrl', ['$scope', 'Restangular','$state', '$window','$modal',
         function ($scope, Restangular, $state, $window, $modal) {

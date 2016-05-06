@@ -4,7 +4,8 @@
     "ng-crud": "^0.2.0",
     "csw-ng-auth": "^0.1.0",
     "angular-ui-router": "~0.2.15",
-    "bootswatch-dist": "slate"
+    "bootswatch-dist": "slate",
+    "angular-youtube-embed": "^1.0.2"
   },
   "overrides": {
     "bootstrap": {

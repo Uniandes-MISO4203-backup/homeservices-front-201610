@@ -1,5 +1,6 @@
 (function (ng) {
     var mod = ng.module('mainApp', [
+        'keats.youtube',
         'categoryModule',
         'contractorModule',
         'contractorReviewModule',

@@ -17,6 +17,11 @@
                 type: 'String',
                 required: true
             }, {
+                name: 'url',
+                displayName: 'Youtube video (URL or Code)',
+                type: 'String',
+                required: false
+            },{
                 name: 'document',
                 displayName: 'Document',
                 type: 'String',
