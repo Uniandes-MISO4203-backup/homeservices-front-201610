@@ -12,6 +12,27 @@ describe('Contractor E2E Testing', function () {
         browser.addMockModule('ngCrudMock', function () {
             var mod = angular.module('ngCrudMock');
 
+            mod.run(["$httpBackend",
+                function($httpBackend){
+                    baseUrl='api';
+                    var skillURL = new RegExp(baseUrl + '/(\\w+)/([0-9]+)/(skills)');
+                    var skillRecordURL = new RegExp(baseUrl + '/(\\w+)/([0-9]+)/(skills)/([0-9]+)');
+                    var recordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)');
+                    var skillsArray = [
+                        {name: 'skill1', id: 1},
+                        {name: 'skill2', id: 2}
+                    ]
+                    $httpBackend.whenGET(skillURL).respond(function (method, url) {
+                        console.warn('GET skills');
+                        return [200, skillsArray, {}];
+                    });
+                    $httpBackend.whenDELETE(skillRecordURL).respond(function (method, url) {
+                        console.warn('DELETE skills');
+                        return [200, {}, {}];
+                    });
+                }
+            ]);
+
             mod.run(['ngCrudMock.mockRecords', function(records){
                 records['contractors'] = [];
                 records['contractors'].push({"id":1,"name":"Contractor2","lastName":"Contractor2"});
@@ -36,10 +57,22 @@ describe('Contractor E2E Testing', function () {
         element.all(by.css("#childs a")).get(1).click();
         element.all(by.css("#childs a")).get(2).click();
 
-
         element(by.id('save-contractor')).click();
 
         expect(element(by.id('0-name')).getText()).toBe('New name');
         expect(element(by.id('0-lastName')).getText()).toBe('New lastname');
+    });
+     it('delete skills', function () {
+        browser.get('#/contractor');
+        element(by.id('0-edit-btn')).click();
+        element(by.id('name')).clear().sendKeys('New name skills');
+        element(by.id('lastName')).clear().sendKeys('New lastname skills');
+        
+        element.all(by.css("#childs a")).get(0).click();
+        element(by.id("0-skills")).click();
+        element(by.css('.modal button.btn')).click();
+        element(by.id('0-delete-btn')).click();
+
+        expect(element.all(by.css('table tbody tr')).count()).toEqual(2);
     });
 });
