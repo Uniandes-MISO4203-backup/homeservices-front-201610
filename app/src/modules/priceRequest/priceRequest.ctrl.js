@@ -23,24 +23,54 @@
         $scope.goChat = function (idCustomer, idContractor) {
             $state.go('chat', {chatName: "CU" + idCustomer + "CO" + idContractor});
         };
-        $scope.score=function(serviceRequest){
+        $scope.show = function (item) {
+            $modal.open({
+                templateUrl: "src/modules/priceRequest/customerShow.tpl.html",
+                resolve: {item: item},
+                controller: 'customersModalShowCtrl', controllerAs: 'ctrl'
+            });
+        };
+        $scope.score = function (serviceRequest) {
             $modal.open({
                 templateUrl: "src/modules/priceRequest/customerReview.tpl.html",
                 resolve: {serviceRequest: serviceRequest},
                 controller: 'customerReviewModalShowCtrl', controllerAs: 'ctrl'
             });
-        }
+        };
     }]);
     mod.controller('customerReviewModalShowCtrl', ['$scope', 'Restangular','$state', '$window','$modalInstance','serviceRequest',
         function ($scope, Restangular, $state, $window, $modalInstance, serviceRequest) {
         $scope.serviceRequest = serviceRequest;
-        $scope.value='3';
+        $scope.value = '3';
 
         $scope.sendReview = function () {
             Restangular.all("reviews").post({name: $scope.name, value: $scope.value, customer: serviceRequest.customer}).
             then(function () {
                 $modalInstance.close();
             });
+        };
+    }]);
+
+    mod.controller('customersModalShowCtrl', ['$scope', 'Restangular','$state', '$window','$modalInstance','item',
+        function ($scope, Restangular, $state, $window, $modalInstance, item) {
+        $scope.item = item;
+        $scope.fetchData = function () {
+            Restangular.one('customers', item.id).getList('reviews').then(function (result) {
+                $scope.counter = [0,0,0,0,0];
+                angular.forEach(result, function (review) {
+                    if (review.value && review.value > 0) {
+                        $scope.counter[review.value - 1] = $scope.counter[review.value - 1] + 1;
+                    }
+                });
+                $scope.reviews = result;
+            });
+        };
+        $scope.fetchData();
+        $scope.ok = function () {
+            $modalInstance.close();
+        };
+        $scope.getTimes = function (n) {
+            return new Array(n);
         };
     }]);
 
