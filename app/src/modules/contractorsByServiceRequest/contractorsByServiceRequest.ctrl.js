@@ -30,7 +30,6 @@
                 then(function () {
                     $scope.alerts = [{type: 'success', msg: 'Se creo solicitud de cotización!'}];
                 });
-
             };
         }]);
     mod.controller('contractorsModalShowCtrl', ['$scope', 'Restangular','$state', '$window','$modalInstance','item',
