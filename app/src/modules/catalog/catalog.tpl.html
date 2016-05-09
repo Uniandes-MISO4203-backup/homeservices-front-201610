@@ -1,0 +1,7 @@
+<div class="container">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)">{{alert.msg}}</alert>
+    <h2>Plaform Statistics: </h2>
+    <ul>
+        <li ng-repeat='statistic in data' id='{{statistic.name}}'>{{converter[statistic.name]}}: <span class='value'>{{statistic.statistic}}</span></li>
+    </ul>
+</div>

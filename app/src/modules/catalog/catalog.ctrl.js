@@ -1,18 +1,22 @@
 (function (ng) {
-    ng.module('catalogModule', ['serviceRequestModule'])
-            .constant('catalogContext', 'catalog')
-            .controller('catalogCtrl', ['$scope', 'CrudCreator',
-                'serviceRequestModel', 'catalogContext',
-                function ($scope, ngCrud, model, url) {
-                    ngCrud.extendController({
-                        name: 'catalog',
-                        displayName: 'Catalog',
-                        ctrl: this,
-                        scope: $scope,
-                        model: {fields: model.fields},
-                        url: url
-                    });
-                    this.readOnly = true;
-                    this.fetchRecords();
-                }]);
+    var mod = ng.module('catalogModule', ['serviceRequestModule', 'restangular']);
+
+    mod.controller('catalogCtrl', ['$scope','Restangular',
+        function ($scope, Restangular) {
+            $scope.converter = {
+                numClient: 'Registered customers',
+                numContractor: 'Registered contractors',
+                numServiceReqCreate: 'Registered service request',
+                numServiceReqFinished: 'Finished jobs',
+                numServiceReview: 'Successful jobs'
+            };
+            $scope.fetchData = function () {
+                Restangular.all('serviceRequests/statistics').getList().
+                then(function (result) {
+                    $scope.data = result;
+                });
+            };
+            $scope.fetchData();
+        }
+    ]);
 })(window.angular);

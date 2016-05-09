@@ -105,7 +105,7 @@
                     })
                     .state('catalog', {
                         url: '/catalog',
-                        templateUrl: tplUrl,
+                        templateUrl: 'src/modules/catalog/catalog.tpl.html',
                         controller: 'catalogCtrl',
                         controllerAs: alias
                     })
