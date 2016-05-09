@@ -3,12 +3,12 @@
 
     mod.controller('catalogCtrl', ['$scope','Restangular',
         function ($scope, Restangular) {
-            $scope.converter={
-                numClient:'Registered customers', 
-                numContractor:'Registered contractors',
-                numServiceReqCreate:'Registered service request',
-                numServiceReqFinished:'Finished jobs',
-                numServiceReview:'Successful jobs'
+            $scope.converter = {
+                numClient: 'Registered customers',
+                numContractor: 'Registered contractors',
+                numServiceReqCreate: 'Registered service request',
+                numServiceReqFinished: 'Finished jobs',
+                numServiceReview: 'Successful jobs'
             };
             $scope.fetchData = function () {
                 Restangular.all('serviceRequests/statistics').getList().

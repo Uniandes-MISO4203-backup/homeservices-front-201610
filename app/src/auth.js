@@ -32,7 +32,7 @@
                         $rootScope.profile = true;
                         $rootScope.myskills = true;
                         $rootScope.contractor = true;
-                        $rootScope.catalog = false;
+                        $rootScope.catalog = true;
                         $rootScope.customer = false;
                         $rootScope.serviceRequest = false;
                         $rootScope.category = false;
