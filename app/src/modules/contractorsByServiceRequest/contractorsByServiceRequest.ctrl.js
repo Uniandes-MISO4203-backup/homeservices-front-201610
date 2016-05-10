@@ -26,9 +26,22 @@
             };
 
             $scope.sendPriceRequest = function (x) {
-                Restangular.one('priceRequests', x.id).post().
-                then(function () {
-                    $scope.alerts = [{type: 'success', msg: 'Se creo solicitud de cotización!'}];
+                Restangular.one('serviceRequests', $scope.serviceRequest.id).getList('pricelist').
+                then(function (data) {
+                    var present = false;
+                    angular.forEach(data, function (priceRequest) {
+                        if (priceRequest.serviceRequest.id === $scope.serviceRequest.id && priceRequest.contractor.id === x.id) {
+                            present = true;
+                        }
+                    });
+                    if (!present) {
+                        Restangular.all('priceRequests').post({contractorDTO: x, serviceRequestDTO: $scope.serviceRequest}).
+                        then(function () {
+                            $scope.alerts = [{type: 'success', msg: 'Price request created'}];
+                        });
+                    }else {
+                        $scope.alerts = [{type: 'danger', msg: 'This contractor already have price request'}];
+                    }
                 });
             };
         }]);

@@ -9,8 +9,26 @@ describe('contractorsByServiceRequests E2E Testing', function () {
             mod.run(["$httpBackend",
                 function($httpBackend){
                     baseUrl='api';
+                    var pricelistUrl = new RegExp(baseUrl + '/serviceRequests/([0-9]+)/pricelist');
                     var resourceRecordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)/(\\w+)');
                     var recordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)');
+                    var authURL = new RegExp(baseUrl + '/users/me');
+                    $httpBackend.whenGET(authURL).respond(function (method, url) {
+                        console.warn('GET skills');
+                        return [200, {"email":"contractor_ciclo3@saberes.com","givenName":"Contractor",
+                            "middleName":"cICLO","rememberMe":false,
+                            "roles":["customer"],"surName":"Ciclo 3",
+                            "userName":"contractor_ciclo3"}, 
+                            {}];
+                    });
+                    var priceRequestarray = [
+                        {contractor:{id: 1, name: 'Contractor 1'}, serviceRequest:{id:1}, priceRequestStatus: 'PENDIENTE' },
+                        {contractor:{id:3, name: 'Contractor 3'}, serviceRequest:{id:1}, priceRequestStatus: 'PENDIENTE' }
+                    ]
+                    $httpBackend.whenGET(pricelistUrl).respond(function (method, url) {
+                        console.warn('GET');
+                        return [200, priceRequestarray, {}];
+                    });
                     var array = [
                         {name: 'Excelent service', value: 5},
                         {name: 'bad service', value: 2},
@@ -52,10 +70,15 @@ describe('contractorsByServiceRequests E2E Testing', function () {
         element(by.css('.btn-ok')).click();
     });
 
+    it('R7 already registered', function () {
+        browser.get('#/contractorsByServiceRequest?idServiceRequest=1');
+        element(by.css('.btn-send-request')).click();
+        expect(element.all(by.css('.alert.alert-danger')).count()).toEqual(1);
+    });
 
     it('R7 send request', function () {
         browser.get('#/contractorsByServiceRequest?idServiceRequest=1');
-        element(by.css('.btn-send-request')).click();
+        element.all(by.css('.btn-send-request')).last().click();
         expect(element.all(by.css('.alert')).count()).toEqual(1);
     });
 });
