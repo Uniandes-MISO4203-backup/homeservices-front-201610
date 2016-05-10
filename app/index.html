@@ -1,141 +1,148 @@
 <!DOCTYPE html>
 <html ng-app="mainApp">
-    <head>
-        <title>HomeServices</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>HomeServices</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- build:css(<%= meta.src %>) styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="../bower_components/bootswatch-dist/css/bootstrap.css" />
-        <!-- endbower -->
-        <link rel="stylesheet" href="../bower_components/angular-youtube-embed/dist/angular-youtube-embed.css" />
-        <link rel="stylesheet" href="../src/modules/contractorsByServiceRequest/contractorsByServiceRequest.css" />
-        
-        <!-- endbuild -->
+    <!-- build:css(<%= meta.src %>) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/bootswatch-dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="../bower_components/angular-youtube-embed/dist/angular-youtube-embed.css" />
+    <link rel="stylesheet" href="../src/modules/contractorsByServiceRequest/contractorsByServiceRequest.css" />
 
-        <!-- build:css(<%= meta.src %>) styles/main.css -->
-        <!-- include: "type": "css", "files": "<%= meta.includeCssFiles %>" -->
+    <!-- endbuild -->
+
+    <!-- build:css(<%= meta.src %>) styles/main.css -->
+    <!-- include: "type": "css", "files": "<%= meta.includeCssFiles %>" -->
 
 
-    <link href="src/modules/contractorsByServiceRequest/contractorsByServiceRequest.css" rel="stylesheet" type="text/css">
-        <!-- /include -->
-        <!-- endbuild -->
+<link href="src/modules/contractorsByServiceRequest/contractorsByServiceRequest.css" rel="stylesheet" type="text/css">
+    <!-- /include -->
+    <!-- endbuild -->
 
-        <!-- build:js(<%= meta.src %>) scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="../bower_components/jquery/dist/jquery.js"></script>
-        <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="../bower_components/lodash/lodash.js"></script>
-        <script src="../bower_components/restangular/dist/restangular.js"></script>
-        <script src="../bower_components/ng-crud/dist/ngcrud.js"></script>
-        <script src="../bower_components/angular-messages/angular-messages.js"></script>
-        <script src="../bower_components/ngstorage/ngStorage.js"></script>
-        <script src="../bower_components/checklist-model/checklist-model.js"></script>
-        <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="../bower_components/csw-ng-auth/dist/csw-ng-auth.js"></script>
-        <!-- endbower -->
-        <script src="../bower_components/angular-youtube-embed/dist/angular-youtube-embed.js"></script>
-        <!-- endbuild -->
+    <!-- build:js(<%= meta.src %>) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/restangular/dist/restangular.js"></script>
+    <script src="../bower_components/ng-crud/dist/ngcrud.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+    <script src="../bower_components/checklist-model/checklist-model.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/csw-ng-auth/dist/csw-ng-auth.js"></script>
+    <!-- endbower -->
+    <script src="../bower_components/angular-youtube-embed/dist/angular-youtube-embed.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js(<%= meta.src %>) scripts/scripts.js -->
-        <!-- include: "type": "js", "files": "<%= meta.includeJsFiles %>" -->
-        <script src="src/app.js"></script>
-        <script src="src/modules/category/category.mod.js"></script>
-        <script src="src/modules/chat/chat.mod.js"></script>
-        <script src="src/modules/contractor/contractor.mod.js"></script>
-        <script src="src/modules/customer/customer.mod.js"></script>
-        <script src="src/modules/education/education.mod.js"></script>
-        <script src="src/modules/newChat/newChat.mod.js"></script>
-        <script src="src/modules/searchServiceRequest/searchServiceRequest.mod.js"></script>
-        <script src="src/modules/serviceRequest/serviceRequest.mod.js"></script>
-        <script src="src/modules/serviceRequestPrices/serviceRequestPrices.mod.js"></script>
-        <script src="src/modules/skill/skill.mod.js"></script>
-        <script src="src/modules/status/status.mod.js"></script>
-        <script src="src/modules/workExperience/workExperience.mod.js"></script>
-        <script src="src/auth.js"></script>
-        <script src="src/modules/account/profile.ctrl.js"></script>
-        <script src="src/modules/catalog/catalog.ctrl.js"></script>
-        <script src="src/modules/category/category.ctrl.js"></script>
-        <script src="src/modules/chat/chat.ctrl.js"></script>
-        <script src="src/modules/contractor/contractor.ctrl.js"></script>
-        <script src="src/modules/contractorReview/contractorReview.ctrl.js"></script>
-        <script src="src/modules/contractorsByServiceRequest/contractorsByServiceRequest.ctrl.js"></script>
-        <script src="src/modules/customer/customer.ctrl.js"></script>
-        <script src="src/modules/newChat/newChat.ctrl.js"></script>
-        <script src="src/modules/priceRequest/priceRequest.ctrl.js"></script>
-        <script src="src/modules/searchServiceRequest/searchServiceRequest.ctrl.js"></script>
-        <script src="src/modules/serviceRequest/serviceRequest.ctrl.js"></script>
-        <script src="src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js"></script>
-        <script src="src/modules/skill/skill.ctrl.js"></script>
-        <script src="src/modules/status/status.ctrl.js"></script>
-        <!-- /include -->
-        <!-- endbuild -->
+    <!-- build:js(<%= meta.src %>) scripts/scripts.js -->
+    <!-- include: "type": "js", "files": "<%= meta.includeJsFiles %>" -->
+    <script src="src/app.js"></script>
+    <script src="src/modules/category/category.mod.js"></script>
+    <script src="src/modules/chat/chat.mod.js"></script>
+    <script src="src/modules/contractor/contractor.mod.js"></script>
+    <script src="src/modules/customer/customer.mod.js"></script>
+    <script src="src/modules/education/education.mod.js"></script>
+    <script src="src/modules/newChat/newChat.mod.js"></script>
+    <script src="src/modules/searchServiceRequest/searchServiceRequest.mod.js"></script>
+    <script src="src/modules/serviceRequest/serviceRequest.mod.js"></script>
+    <script src="src/modules/serviceRequestPrices/serviceRequestPrices.mod.js"></script>
+    <script src="src/modules/skill/skill.mod.js"></script>
+    <script src="src/modules/status/status.mod.js"></script>
+    <script src="src/modules/workExperience/workExperience.mod.js"></script>
+    <script src="src/auth.js"></script>
+    <script src="src/modules/account/profile.ctrl.js"></script>
+    <script src="src/modules/catalog/catalog.ctrl.js"></script>
+    <script src="src/modules/category/category.ctrl.js"></script>
+    <script src="src/modules/chat/chat.ctrl.js"></script>
+    <script src="src/modules/contractor/contractor.ctrl.js"></script>
+    <script src="src/modules/contractorReview/contractorReview.ctrl.js"></script>
+    <script src="src/modules/contractorsByServiceRequest/contractorsByServiceRequest.ctrl.js"></script>
+    <script src="src/modules/customer/customer.ctrl.js"></script>
+    <script src="src/modules/newChat/newChat.ctrl.js"></script>
+    <script src="src/modules/priceRequest/priceRequest.ctrl.js"></script>
+    <script src="src/modules/searchServiceRequest/searchServiceRequest.ctrl.js"></script>
+    <script src="src/modules/serviceRequest/serviceRequest.ctrl.js"></script>
+    <script src="src/modules/serviceRequestPrices/serviceRequestPrices.ctrl.js"></script>
+    <script src="src/modules/skill/skill.ctrl.js"></script>
+    <script src="src/modules/status/status.ctrl.js"></script>
+    <!-- /include -->
+    <!-- endbuild -->
 
-    </head>
-    <body style="padding-top: 60px;">
-        <div class="container">
-            <div class="col-md-12">
-                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                    <div class="container">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-bar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+</head>
+<body style="padding-top: 60px;">
+    <div class="container">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-bar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" ui-sref="catalog">HomeServices</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="main-bar">
+                        <ul id="menu" ng-controller="roleCtrl" id="menu" class="nav navbar-nav">
+                            <li ng-if="contractor"><a ui-sref="contractor">Contractor</a></li>
+                            <li ng-if="customer"><a ui-sref="customer">Customer</a></li>
+                            <li ng-if="serviceRequest"><a ui-sref="serviceRequest">Service Request</a></li>
+                            <li ng-if="priceRequests"><a ui-sref="priceRequests">Price Request</a></li>
+                            <li ng-if="catalog"><a ui-sref="catalog">Catalog</a></li>
+                            <li ng-if="myskills"><a ui-sref="myskills">My Skills</a></li>
+                            <li ng-if="profile"><a ui-sref="profile">Profile</a></li>
+                            <li ng-if="skill"><a ui-sref="skill">Skill</a></li>
+                            <li ng-if="category"><a ui-sref="category">category</a></li>
+                            <li ng-if="status"><a ui-sref="status">Status</a></li>
+                            <li ng-if="serviceRequest">
+                            <button class="btn-show btn btn-primary btn-xs ng-binding" ng-click="ctrl.showSkill=!ctrl.showSkill">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Skills
                             </button>
-                            <a class="navbar-brand" ui-sref="catalog">HomeServices</a>
-                        </div>
+                            <form ng-if="ctrl.showSkill" novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchBySkill(skillName)" ng-controller="ContractorsskillsCtrl as ctrl" >
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search Contractors by skill" ng-model="skillName" required>
+                                </div>
+                                <button type="submit" class="btn btn default">Search</button>
+                            </form>
+                            <button class="btn-show btn btn-success btn-xs ng-binding" ng-click="ctrl.showExperience=!ctrl.showExperience">
+                                <span class="glyphicon glyphicon-search"></span>
+                                Experience
+                            </button>
+                            <form ng-if="ctrl.showExperience"  novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchByExperience()" ng-controller="ContractorsExperienceCtrl as ctrl" >
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search by experience" ng-model="ctrl.experienceName" required>
+                                </div>
+                                <button type="submit" class="btn btn default">Search</button>
+                            </form> 
+                        </li>
+                    </ul>
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="main-bar">
-                            <ul id="menu" ng-controller="roleCtrl" id="menu" class="nav navbar-nav">
-                                <li ng-if="contractor"><a ui-sref="contractor">Contractor</a></li>
-                                <li ng-if="customer"><a ui-sref="customer">Customer</a></li>
-                                <li ng-if="serviceRequest"><a ui-sref="serviceRequest">Service Request</a></li>
-                                <li ng-if="priceRequests"><a ui-sref="priceRequests">Price Request</a></li>
-                                <li ng-if="catalog"><a ui-sref="catalog">Catalog</a></li>
-                                <li ng-if="myskills"><a ui-sref="myskills">My Skills</a></li>
-                                <li ng-if="profile"><a ui-sref="profile">Profile</a></li>
-                                <li ng-if="skill"><a ui-sref="skill">Skill</a></li>
-                                <li ng-if="category"><a ui-sref="category">category</a></li>
-                                <li ng-if="status"><a ui-sref="status">Status</a></li>
-                                <li ng-if="serviceRequest">
-
-                                 <form novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchBySkill(skillName)" ng-controller="ContractorsskillsCtrl as ctrl" >
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Search Contractors by skill" ng-model="skillName" required>
-                                        </div>
-                                        <button type="submit" class="btn btn default">Search</button>
-                                    </form>
-                                                                <form novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchByExperience()" ng-controller="ContractorsExperienceCtrl as ctrl" >
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search by experience" ng-model="ctrl.experienceName" required>
-                                    </div>
-                                    <button type="submit" class="btn btn default">Search</button>
-                                </form> 
-                                </li>
-                            </ul>
-                            
-                            <ul class="nav navbar-nav navbar-right">
-                                <login-button></login-button>
-                            </ul>    
-                        </div> <!-- /.navbar-collapse -->
-                    </div> <!-- /.container-fluid -->
-                </nav>
-            </div>
-            <br>
-            <br>
-            <br>            
-            <div ui-view></div>
-        </div>
-    </body>
+                    <ul class="nav navbar-nav navbar-right">
+                        <login-button></login-button>
+                    </ul>    
+                </div> <!-- /.navbar-collapse -->
+            </div> <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>            
+    <div ui-view></div>
+</div>
+</body>
 </html>
