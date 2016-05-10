@@ -165,45 +165,35 @@
             });
             auth.setRoles({
                 'customer': [{
-                        id: 'catalog',
-                        label: 'Catalog',
-                        icon: 'list-alt',
+                        id: 'statistics',
+                        label: 'Statistics',
+                        icon: 'signal',
                         state: 'catalog'
-                    }, {
-                        id: 'profile',
-                        label: 'Profile',
-                        icon: 'list-alt',
-                        state: 'profile'
-                    }, {
+                    },{
                         id: 'customer',
-                        label: 'Customer',
-                        icon: 'list-alt',
+                        label: 'Profile',
+                        icon: 'user',
                         state: 'customer'
-                    }, {
+                    },{
                         id: 'serviceRequest',
                         label: 'Service Requests',
-                        icon: 'list-alt',
+                        icon: 'briefcase',
                         state: 'serviceRequest'
                     }],
                 'contractor': [{
+                        id: 'statistics',
+                        label: 'Statistics',
+                        icon: 'signal',
+                        state: 'catalog'
+                    },{
                         id: 'profile',
                         label: 'Profile',
-                        icon: 'list-alt',
-                        state: 'profile'
-                    }, {
-                        id: 'contractor',
-                        label: 'Contractor',
-                        icon: 'list-alt',
+                        icon: 'user',
                         state: 'contractor'
-                    }, {
-                        id: 'myskills',
-                        label: 'Skills',
-                        icon: 'list-alt',
-                        state: 'myskills'
                     },{
                         id: 'priceRequests',
                         label: 'Price Requests',
-                        icon: 'list-alt',
+                        icon: 'th-list',
                         state: 'priceRequests'
                     }]});
         }]);

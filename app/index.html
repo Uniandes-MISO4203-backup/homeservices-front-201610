@@ -98,35 +98,35 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="main-bar">
                         <ul id="menu" ng-controller="roleCtrl" id="menu" class="nav navbar-nav">
-                            <li ng-if="catalog"><a ui-sref="catalog">Statistics</a></li>
-                            <li ng-if="contractor"><a ui-sref="contractor">Contractor</a></li>
-                            <li ng-if="customer"><a ui-sref="customer">Customer</a></li>
-                            <li ng-if="serviceRequest"><a ui-sref="serviceRequest">Service Request</a></li>
-                            <li ng-if="priceRequests"><a ui-sref="priceRequests">Price Request</a></li>
-                            <li ng-if="profile"><a ui-sref="profile">Profile</a></li>
+                            <li ng-if="catalog"><a ui-sref="catalog"> <span aria-hidden="true" class="glyphicon glyphicon-signal"></span> Statistics</a></li>
+                            <li ng-if="serviceRequest"><a ui-sref="serviceRequest"><span aria-hidden="true" class="glyphicon glyphicon-briefcase"></span>Service Request</a></li>
+                            <li ng-if="priceRequests"><a ui-sref="priceRequests"><span aria-hidden="true" class="glyphicon glyphicon-th-list"></span>Price Request</a></li>
                             <li ng-if="skill"><a ui-sref="skill">Skill</a></li>
                             <li ng-if="category"><a ui-sref="category">category</a></li>
                             <li ng-if="status"><a ui-sref="status">Status</a></li>
+                            <li ng-if="contractor"><a ui-sref="contractor"><span aria-hidden="true" class="glyphicon glyphicon-user">Profile</a></li>
+                            <li ng-if="customer"><a ui-sref="customer"><span aria-hidden="true" class="glyphicon glyphicon-user">Profile</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li ng-if="serviceRequest" ng-init='showSkill=false'>
-                            <button class="btn btn-primary btn-xs ng-binding btn-show-search" ng-click="showSkill=!showSkill">
+                            <button id='btn-show-general-search' class="btn btn-primary btn-xs ng-binding btn-show-search" 
+                                ng-click="showSkill=!showSkill">
                                 <span class="glyphicon glyphicon-search" ng-if="!showSkill"></span>
                                 <span class="glyphicon glyphicon-zoom-out" ng-if="showSkill"></span>
                                 Search
                             </button>
-                            <form ng-if="showSkill" novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchBySkill(skillName)" ng-controller="ContractorsskillsCtrl as ctrl" >
+                            <form ng-if="showSkill" novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchBySkill(skillName)" ng-controller="ContractorsskillsCtrl as ctrl" id='search-by-skill-form'>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Search Contractors by skill" ng-model="skillName" required>
                                 </div>
-                                <button type="submit" class="btn btn default">Search</button>
+                                <button type="submit" class="btn btn-primary">Search</button>
                             </form>
-                            <form ng-if="showSkill"  novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchByExperience()" ng-controller="ContractorsExperienceCtrl as ctrl" >
+                            <form ng-if="showSkill"  novalidate class="navbar-form navbar-left" role="search" ng-submit="ctrl.searchByExperience()" ng-controller="ContractorsExperienceCtrl as ctrl" id='search-by-experience-form' >
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Search by experience" ng-model="ctrl.experienceName" required>
                                 </div>
-                                <button type="submit" class="btn btn default">Search</button>
+                                <button type="submit" class="btn btn-primary">Search</button>
                             </form> 
                         </li>
                         <login-button></login-button>
