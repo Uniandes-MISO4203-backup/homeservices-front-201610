@@ -3,11 +3,13 @@
 
     mod.controller('contractorsByServiceRequestCtrl', ['$scope', 'Restangular','$state', '$window','$modal',
         function ($scope, Restangular, $state, $window, $modal) {
+            $scope.currentDate = new Date();
             $scope.idServiceRequest = $state.params.idServiceRequest;
             $scope.fetchData = function () {
                 //Web service carga datos del service request
                 Restangular.one('serviceRequests', $scope.idServiceRequest).get().then(function (object) {
                     $scope.serviceRequest = object;
+                    $scope.priceRequestLimit = new Date(object.priceRequestLimit);
                 });
                 //Web service de datos desde el servicio contractors a la lista data
                 Restangular.all('contractors').getList({idServiceRequest: $scope.idServiceRequest}).

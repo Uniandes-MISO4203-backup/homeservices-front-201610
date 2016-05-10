@@ -1,4 +1,4 @@
-describe('Authentication contractor E2E Testing', function () {
+describe('Authentication null E2E Testing', function () {
 	browser.driver.manage().window().maximize();        
     
     beforeEach(function () {
@@ -21,7 +21,7 @@ describe('Authentication contractor E2E Testing', function () {
         });
     });
 
-    it('authentication contractor', function () {       
+    it('authentication null', function () {       
         browser.get('#/catalog');
         expect(element.all(by.css('ul#menu li')).count()).toEqual(0);
     });

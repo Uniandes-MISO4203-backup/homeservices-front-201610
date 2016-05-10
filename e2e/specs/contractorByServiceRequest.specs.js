@@ -14,7 +14,7 @@ describe('contractorsByServiceRequests E2E Testing', function () {
                     var recordUrl = new RegExp(baseUrl + '/(\\w+)/([0-9]+)');
                     var authURL = new RegExp(baseUrl + '/users/me');
                     $httpBackend.whenGET(authURL).respond(function (method, url) {
-                        console.warn('GET skills');
+                        console.warn('GET auth');
                         return [200, {"email":"contractor_ciclo3@saberes.com","givenName":"Contractor",
                             "middleName":"cICLO","rememberMe":false,
                             "roles":["customer"],"surName":"Ciclo 3",
@@ -55,7 +55,7 @@ describe('contractorsByServiceRequests E2E Testing', function () {
                 records['serviceRequests'].push({
                     "id":1,"name":"Request service 1","price":10000,
                     "recommendedTime":"10","creationDate":"2016-04-17",
-                    "dueDate":"2016-04-19","priceRequestLimit":"2016-04-18",
+                    "dueDate":"2016-04-19","priceRequestLimit":"2100-04-18",
                     "expectedskills":[],status:{id: 3, name: 'finished'},
                     "customer":{"id":1,"name":"Customer3","lastName":"Customer3",
                         "serviceRequests":[]},"description":"Nada"}); 
