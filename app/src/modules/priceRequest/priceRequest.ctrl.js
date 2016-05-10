@@ -42,9 +42,16 @@
         function ($scope, Restangular, $state, $window, $modalInstance, serviceRequest) {
         $scope.serviceRequest = serviceRequest;
         $scope.value = '3';
+        $scope.reviewCount = 1;
+        $scope.fetchData = function () {
+            Restangular.one('customers', serviceRequest.customer.id).getList('reviews').then(function (result) {
+                $scope.reviewCount = result.count;
+            });
+        };
+        $scope.fetchData();
 
         $scope.sendReview = function () {
-            Restangular.all("reviews").post({name: $scope.name, value: $scope.value, customer: serviceRequest.customer}).
+            Restangular.all("contractors/reviews").post({name: $scope.name, value: $scope.value, customer: serviceRequest.customer}).
             then(function () {
                 $modalInstance.close();
             });

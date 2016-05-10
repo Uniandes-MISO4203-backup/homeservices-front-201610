@@ -18,6 +18,7 @@
         <li ng-repeat="review in reviews" style='list-style: none'>
             <span ng-repeat="t in getTimes(review.value) track by $index" class='glyphicon glyphicon-star'>
             </span>
+            {{review.name}}
         </li>
     </ul>
 </div>

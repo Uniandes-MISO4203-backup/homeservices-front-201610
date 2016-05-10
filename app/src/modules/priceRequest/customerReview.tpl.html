@@ -1,7 +1,7 @@
 <div class="modal-header">
     <h3 class="modal-title">Customer {{serviceRequest.customer.name}} {{serviceRequest.customer.name}}</h3>
 </div>
-<form name="reviewForm">
+<form name="reviewForm" ng-if="reviewCount==0">
     <div class="modal-body">
         <div class='row'>        
             <h2>Service request: <span id='serviceRequestName'>{{serviceRequest.name}}</span>
@@ -23,3 +23,6 @@
         <button class="submit btn btn-success btn-sm" ng-click="sendReview()" >Submit</button>
     </div>
 </form>
+<div class="modal-body"  ng-if="reviewCount!=0">
+    You already scored this customer
+</div>
