@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h3 class="modal-title">Customer {{serviceRequest.customer.name}} {{serviceRequest.customer.name}}</h3>
+</div>
+<form name="reviewForm" ng-if="reviewCount==0">
+    <div class="modal-body">
+        <div class='row'>        
+            <h2>Service request: <span id='serviceRequestName'>{{serviceRequest.name}}</span>
+            </h2>
+            Estado: {{serviceRequest.status.name}}
+        </div>
+        <div class='row'>
+            <div class="col-md-8 col-md-offset-2 thumbnail">
+                    <input class='review' ng-model='name' style='width: 100%; height: 3em;' placeholder="Tell others what you think about this contractor" /><br/>
+                    <label><input type="radio" ng-model="value" class='radio' ng-value="1"><br>1</label>
+                    <label><input type="radio" ng-model="value" class='radio' ng-value="2"><br>2</label>
+                    <label><input type="radio" ng-model="value" class='radio' ng-value="3"><br>3</label>
+                    <label><input type="radio" ng-model="value" class='radio' ng-value="4"><br>4</label>
+                    <label><input type="radio" ng-model="value" class='radio' ng-value="5"><br>5</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="submit btn btn-success btn-sm" ng-click="sendReview()" >Submit</button>
+    </div>
+</form>
+<div class="modal-body"  ng-if="reviewCount!=0">
+    You already scored this customer
+</div>

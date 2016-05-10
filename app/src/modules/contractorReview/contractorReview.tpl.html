@@ -3,7 +3,7 @@
     <div class='row'>
         <div class="col-md-8 col-md-offset-2 thumbnail">
             <div class="col-md-9">
-                <h2>Price List: <span id='serviceRequestName'>{{serviceRequest.name}}</span>
+                <h2>Service Request: <span id='serviceRequestName'>{{serviceRequest.name}}</span>
                 </h2>
                 Estado: {{serviceRequest.status.name}}
             </div>
@@ -19,7 +19,6 @@
                 <label><input type="radio" ng-model="value" class='radio' ng-value="4"><br>4</label>
                 <label><input type="radio" ng-model="value" class='radio' ng-value="5"><br>5</label><br>
                 <button class="submit btn btn-success btn-sm" ng-click="sendReview()" >Submit</button>
-                {{reviewForm.$valid}}
             </form>
         </div>
     </div>

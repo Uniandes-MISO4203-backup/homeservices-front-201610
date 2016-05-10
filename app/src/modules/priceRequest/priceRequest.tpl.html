@@ -1,6 +1,5 @@
 <div class="container">
     <div ng-controller="priceRequestCtrl"> 
-
         <table class="table">
             <thead>
                 <tr>
@@ -14,26 +13,31 @@
                 <tr ng-repeat="x in priceResquest">
                     <td>{{ x.status}}</td>
                     <td>{{ x.serviceRequestDTO.description}}</td>
-                    <td><input type="text" ng-model="x.price"></td>
-                    <td><textarea ng-model="x.description"></textarea></td>
+                    <td><input type="text" ng-model="x.price"  ng-if="x.status=='PENDIENTE'"></td>
+                    <td><textarea ng-model="x.description"  ng-if="x.status=='PENDIENTE'"></textarea></td>
                     <td>
-			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="acceptPriceRequest(x)">
+                        <button type="button" class="btn btn-default btn-sm" 
+                            ng-click="show(x)">
+                            Show
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" 
+                            ng-click="acceptPriceRequest(x)" ng-if="x.status=='PENDIENTE'">
                             Accept
                         </button>
-                    </td>
-                     <td>
-			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="rejectPriceRequest(x)">
+                        <button type="button" class="btn btn-danger btn-sm "
+                            ng-click="rejectPriceRequest(x)"  ng-if="x.status=='PENDIENTE'">
                             Reject
-			</button>
-                    </td>
-                    <td>
-			<button type="button" class="btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat(x.serviceRequestDTO.customer.id, x.contractorDTO.id)">
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="goChat(x.serviceRequestDTO.customer.id, x.contractorDTO.id)">
                             Chat Customer
-			</button>
+                        </button>
+                        <button type='button' class="btn btn-success btn-sm" ng-if="x.serviceRequestDTO.status.id == 3"
+                        ng-click="score(x.serviceRequestDTO)" >
+                            Score
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
     </div>
 </div>
