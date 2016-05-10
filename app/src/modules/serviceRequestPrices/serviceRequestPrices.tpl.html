@@ -25,12 +25,19 @@
                     <td><span ng-show="currentDate>=priceRequestLimit">{{item.price}}</span></td>
                     <td><span ng-show="currentDate>=priceRequestLimit">{{item.description}}</span></td>
                     <td>
-                        <button class="create-chat-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="create( item.contractor.id  )" 
-                            ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">Create Chat</button>
-                        <button class="go-chat-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="goChat( item.contractor.id  )"
-                            ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">Go to Chat</button>
-                        <button class="hire-btn btn btn-default btn-sm ng-binding ng-scope" ng-click="hire( item )"
-                            ng-show="serviceRequest.status.id==1 && currentDate>=priceRequestLimit">Hire</button>
+                        <button class="create-chat-btn btn btn-success btn-sm ng-binding ng-scope" ng-click="create( item.contractor.id  )" 
+                            ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">
+                            <span class="glyphicon glyphicon-plus"></span>Create Chat
+                        </button>
+                        <button class="go-chat-btn btn btn-primary btn-sm ng-binding ng-scope" ng-click="goChat( item.contractor.id  )"
+                            ng-show="serviceRequest.status.id==1 || item.priceRequestStatus == 'CONTRATADO'">
+                            <span class="glyphicon glyphicon-comment"></span>
+                            Go to Chat
+                        </button>
+                        <button class="hire-btn btn btn-success btn-sm ng-binding ng-scope" ng-click="hire( item )"
+                            ng-show="serviceRequest.status.id==1 && currentDate>=priceRequestLimit">
+                            <span class="glyphicon glyphicon-ok"></span> Hire
+                        </button>
                     </td>
                 </tr>
             </table>

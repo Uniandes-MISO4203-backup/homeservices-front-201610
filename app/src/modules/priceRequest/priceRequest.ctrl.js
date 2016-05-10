@@ -23,14 +23,14 @@
         $scope.goChat = function (idCustomer, idContractor) {
             $state.go('chat', {chatName: "CU" + idCustomer + "CO" + idContractor});
         };
-        $scope.show = function (item) {
+        $scope.showCustomer = function (item) {
             $modal.open({
                 templateUrl: "src/modules/priceRequest/customerShow.tpl.html",
                 resolve: {item: item},
                 controller: 'customersModalShowCtrl', controllerAs: 'ctrl'
             });
         };
-        $scope.score = function (serviceRequest) {
+        $scope.scoreCustomer = function (serviceRequest) {
             $modal.open({
                 templateUrl: "src/modules/priceRequest/customerReview.tpl.html",
                 resolve: {serviceRequest: serviceRequest},
@@ -42,7 +42,7 @@
         function ($scope, Restangular, $state, $window, $modalInstance, serviceRequest) {
         $scope.serviceRequest = serviceRequest;
         $scope.value = '3';
-        $scope.reviewCount = 1;
+        $scope.reviewCount = 0;
         $scope.fetchData = function () {
             Restangular.one('customers', serviceRequest.customer.id).getList('reviews').then(function (result) {
                 $scope.reviewCount = result.count;
@@ -51,6 +51,7 @@
         $scope.fetchData();
 
         $scope.sendReview = function () {
+            $scope.serviceRequest.scored = true;
             Restangular.all("contractors/reviews").post({name: $scope.name, value: $scope.value, customer: serviceRequest.customer}).
             then(function () {
                 $modalInstance.close();

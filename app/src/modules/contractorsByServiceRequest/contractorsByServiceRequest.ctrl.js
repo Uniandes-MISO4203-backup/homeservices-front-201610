@@ -19,7 +19,7 @@
             };
             $scope.fetchData();
 
-            $scope.show = function (item) {
+            $scope.showContractor = function (item) {
                 $modal.open({
                     templateUrl: "src/modules/contractorsByServiceRequest/contractorsShow.tpl.html",
                     resolve: {item: item},
@@ -37,7 +37,8 @@
                         }
                     });
                     if (!present) {
-                        Restangular.all('priceRequests').post({contractorDTO: x, serviceRequestDTO: $scope.serviceRequest}).
+                        Restangular.all('priceRequests').post({contractorDTO: x,
+                            serviceRequestDTO: $scope.serviceRequest, status: 'PENDIENTE'}).
                         then(function () {
                             $scope.alerts = [{type: 'success', msg: 'Price request created'}];
                         });

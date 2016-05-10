@@ -3,36 +3,54 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Service Request Status</th>
+                    <th>Customer</th>
                     <th>Service Request Description</th>
-                    <th>Price</th>
-                    <th>Price Request Description</th>
+                    <th>Proposed Price</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="x in priceResquest">
-                    <td>{{ x.status}}</td>
-                    <td>{{ x.serviceRequestDTO.description}}</td>
-                    <td><input type="text" ng-model="x.price"  ng-if="x.status=='PENDIENTE'"></td>
-                    <td><textarea ng-model="x.description"  ng-if="x.status=='PENDIENTE'"></textarea></td>
                     <td>
-                        <button type="button" class="btn btn-default btn-sm" 
-                            ng-click="show(x)">
-                            Show
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm" 
+                        {{ x.serviceRequestDTO.customer.name }}
+                        {{ x.serviceRequestDTO.customer.lastName }}
+                     </td>
+                    <td>{{ x.serviceRequestDTO.name}}</td>
+                    <td>
+                        <input type="text" ng-model="x.price"  ng-if="x.status=='PENDIENTE'">
+                        <span ng-if="x.status!='PENDIENTE'">{{x.price}}
+                        </span>
+                    </td>
+                    <td>
+                        <textarea ng-model="x.description"  ng-if="x.status=='PENDIENTE'"></textarea>
+                        <span ng-if="x.status!='PENDIENTE'">
+                            {{x.description}}
+                        </span>
+                    </td>
+                    <td style='white-space: nowrap;'>
+                        <button type="button" class="btn btn-success btn-sm" 
                             ng-click="acceptPriceRequest(x)" ng-if="x.status=='PENDIENTE'">
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
                             Accept
                         </button>
                         <button type="button" class="btn btn-danger btn-sm "
                             ng-click="rejectPriceRequest(x)"  ng-if="x.status=='PENDIENTE'">
+                            <span class="glyphicon glyphicon-thumbs-down"></span>
                             Reject
                         </button>
+                        <button type="button" class="btn btn-default btn-sm" 
+                            ng-click="showCustomer(x.serviceRequestDTO.customer)">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            Show customer
+                        </button>
                         <button type="button" class="btn btn-primary btn-sm" ng-click="goChat(x.serviceRequestDTO.customer.id, x.contractorDTO.id)">
+                            <span class="glyphicon glyphicon-comment"></span>
                             Chat Customer
                         </button>
                         <button type='button' class="btn btn-success btn-sm" ng-if="x.serviceRequestDTO.status.id == 3"
-                        ng-click="score(x.serviceRequestDTO)" >
+                        ng-click="scoreCustomer(x.serviceRequestDTO)" ng-show='!x.scored'>
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
+
                             Score
                         </button>
                     </td>
