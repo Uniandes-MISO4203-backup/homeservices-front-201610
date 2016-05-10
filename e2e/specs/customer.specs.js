@@ -19,6 +19,9 @@ describe('Customer E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should read one customer', function () {
         browser.get('#/customer');

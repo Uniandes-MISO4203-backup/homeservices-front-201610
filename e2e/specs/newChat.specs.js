@@ -17,6 +17,9 @@ describe('NewChat E2E Testing', function () {
             }]); 
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('NewChat', function () {
         browser.get('#/newchat/1/1/1');

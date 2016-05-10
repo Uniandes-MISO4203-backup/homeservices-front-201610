@@ -28,6 +28,9 @@ describe('Chat E2E Testing', function () {
             }]); 
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('NewChat', function () {
         browser.get('#/chat/CU1CO1');

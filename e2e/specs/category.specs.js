@@ -15,6 +15,9 @@ describe('Category E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should create one category', function () {
         browser.get('#/category');

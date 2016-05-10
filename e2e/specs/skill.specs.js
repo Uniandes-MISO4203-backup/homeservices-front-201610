@@ -15,6 +15,9 @@ describe('Skill E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should create one skill', function () {
         browser.get('#/skill');

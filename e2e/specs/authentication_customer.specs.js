@@ -24,10 +24,12 @@ describe('Authentication customer E2E Testing', function () {
             }]);
         });
     });
-
+    afterEach(function () {
+        browser.clearMockModules();
+    })
     it('authentication customer', function () {       
-        browser.get('#/catalog');
-        expect(element.all(by.css('ul#menu li')).first().getText()).toEqual('Customer');
+        browser.get('#/serviceRequest/');
+        expect(element.all(by.css('ul#menu li')).first().getText()).toEqual('Statistics');
     });
 });
 

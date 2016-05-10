@@ -24,10 +24,13 @@ describe('Authentication admin E2E Testing', function () {
             }]);
         });
     });
-
+    afterEach(function () {
+        browser.clearMockModules();
+    })
+    
     it('authentication admin', function () {       
         browser.get('#/catalog');
-        expect(element.all(by.css('ul#menu li')).count()).toEqual(8);
+        expect(element.all(by.css('ul#menu li')).first().getText()).toEqual('Statistics');
     });
 });
 

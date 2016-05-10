@@ -20,8 +20,13 @@ describe('Authentication null E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function() {
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+    });
 
     it('authentication null', function () {       
+        browser.get('#/catalog');
         browser.get('#/catalog');
         expect(element.all(by.css('ul#menu li')).count()).toEqual(0);
     });

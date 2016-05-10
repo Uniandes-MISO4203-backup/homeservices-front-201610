@@ -56,6 +56,9 @@ describe('ServiceRequest E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should create one serviceRequest', function () {
         browser.get('#/serviceRequest/');

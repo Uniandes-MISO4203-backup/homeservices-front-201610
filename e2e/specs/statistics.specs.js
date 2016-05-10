@@ -25,6 +25,9 @@ describe('Statistic E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should read statistic', function () {       
         browser.get('#/catalog');

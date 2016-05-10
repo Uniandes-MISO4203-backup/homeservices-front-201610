@@ -36,6 +36,9 @@ describe('ServiceRequest E2E Testing', function () {
             }]); 
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('R9 Visit serviceRequestPrices', function () {
         browser.get('#/serviceRequestPrices?serviceRequestId=1');

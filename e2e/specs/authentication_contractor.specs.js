@@ -24,10 +24,12 @@ describe('Authentication contractor E2E Testing', function () {
             }]);
         });
     });
-
+    afterEach(function () {
+        browser.clearMockModules();
+    })
     it('authentication contractor', function () {       
         browser.get('#/catalog');
-        expect(element.all(by.css('ul#menu li')).count()).toEqual(5);
+        expect(element.all(by.css('ul#menu li')).first().getText()).toEqual('Statistics');
     });
 });
 

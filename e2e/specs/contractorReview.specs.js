@@ -27,6 +27,9 @@ describe('contractorReview E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('R12-2 give 1 star', function () {
         browser.get('#/contractorReview?serviceRequestId=1');

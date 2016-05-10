@@ -62,6 +62,9 @@ describe('contractorsByServiceRequests E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('R12-3 read comments', function () {
         browser.get('#/contractorsByServiceRequest?idServiceRequest=1');

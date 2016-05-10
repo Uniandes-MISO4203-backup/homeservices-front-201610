@@ -40,8 +40,11 @@ describe('Contractor E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
-    ('should read one contractor', function () {
+    it('should read one contractor', function () {
         browser.get('#/contractor');
         expect(element(by.id('0-name')).getText()).toBe('Contractor2');
         expect(element(by.id('0-lastName')).getText()).toBe('Contractor2');

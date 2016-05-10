@@ -14,6 +14,9 @@ describe('Status E2E Testing', function () {
             }]);
         });
     });
+    afterEach(function () {
+        browser.clearMockModules();
+    })
 
     it('should create one status', function () {
         browser.get('#/status');
